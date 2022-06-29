@@ -350,40 +350,11 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#latent-semantic-analysis-lsa">
    Latent Semantic Analysis (LSA)
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#now-e-can-get-a-list-of-the-important-words-for-each-of-the-10-topics-as-shown-for-simplicity-here-i-have-shown-10-words-for-each-topic">
-     Now e can get a list of the important words for each of the 10 topics as shown. For simplicity here I have shown 10 words for each topic.
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#latent-dirichlet-allocation-lda">
    Latent Dirichlet Allocation (LDA)
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#note-that-the-values-in-a-particular-row-adds-to-1-this-is-beacuse-each-value-denotes-the-of-contribution-of-the-corressponding-topic-in-the-document">
-     Note that the values in a particular row adds to 1. This is beacuse each value denotes the % of contribution of the corressponding topic in the document.
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#as-we-can-see-topic-7-8-are-dominantly-present-in-document-0">
-     As we can see Topic 7 &amp; 8 are dominantly present in document 0.
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#most-important-words-for-a-topic-say-10-this-time">
-     Most important words for a topic. (say 10 this time.)
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#to-better-visualize-words-in-a-topic-we-can-see-the-word-cloud-for-each-topic-top-50-words-are-plotted">
-     To better visualize words in a topic we can see the word cloud. For each topic top 50 words are plotted.
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -418,40 +389,11 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#latent-semantic-analysis-lsa">
    Latent Semantic Analysis (LSA)
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#now-e-can-get-a-list-of-the-important-words-for-each-of-the-10-topics-as-shown-for-simplicity-here-i-have-shown-10-words-for-each-topic">
-     Now e can get a list of the important words for each of the 10 topics as shown. For simplicity here I have shown 10 words for each topic.
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#latent-dirichlet-allocation-lda">
    Latent Dirichlet Allocation (LDA)
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#note-that-the-values-in-a-particular-row-adds-to-1-this-is-beacuse-each-value-denotes-the-of-contribution-of-the-corressponding-topic-in-the-document">
-     Note that the values in a particular row adds to 1. This is beacuse each value denotes the % of contribution of the corressponding topic in the document.
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#as-we-can-see-topic-7-8-are-dominantly-present-in-document-0">
-     As we can see Topic 7 &amp; 8 are dominantly present in document 0.
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#most-important-words-for-a-topic-say-10-this-time">
-     Most important words for a topic. (say 10 this time.)
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#to-better-visualize-words-in-a-topic-we-can-see-the-word-cloud-for-each-topic-top-50-words-are-plotted">
-     To better visualize words in a topic we can see the word cloud. For each topic top 50 words are plotted.
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -747,7 +689,6 @@ Topic  9  :  -13.277994386615799
 </div>
 </div>
 </div>
-<p>Similalry for other documents we can do this. However note that values dont add to 1 as in LSA it is not probabiltiy of a topic in a document.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">lsa_model</span><span class="o">.</span><span class="n">components_</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="c1"># (no_of_topics*no_of_words)</span>
@@ -774,8 +715,6 @@ Topic  9  :  -13.277994386615799
 </div>
 </div>
 </div>
-<section id="now-e-can-get-a-list-of-the-important-words-for-each-of-the-10-topics-as-shown-for-simplicity-here-i-have-shown-10-words-for-each-topic">
-<h3>Now e can get a list of the important words for each of the 10 topics as shown. For simplicity here I have shown 10 words for each topic.<a class="headerlink" href="#now-e-can-get-a-list-of-the-important-words-for-each-of-the-10-topics-as-shown-for-simplicity-here-i-have-shown-10-words-for-each-topic" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># most important words for each topic</span>
@@ -831,12 +770,8 @@ gempa vs bihalal halal dirasakan guncangan morowali terkini bank juara
 </div>
 </div>
 </section>
-</section>
 <section id="latent-dirichlet-allocation-lda">
 <h2>Latent Dirichlet Allocation (LDA)<a class="headerlink" href="#latent-dirichlet-allocation-lda" title="Permalink to this headline">#</a></h2>
-<p>LDA is the most popular technique.<strong>The topics then generate words based on their probability distribution. Given a dataset of documents, LDA backtracks and tries to figure out what topics would create those documents in the first place.</strong></p>
-<p><strong>To understand the maths it seems as if knowledge of Dirichlet distribution (distribution of distributions) is required which is quite intricate and left fior now.</strong></p>
-<p>To get an inituitive explanation of LDA checkout these blogs: <a class="reference external" href="https://www.analyticsvidhya.com/blog/2016/08/beginners-guide-to-topic-modeling-in-python/">this</a>  ,  <a class="reference external" href="https://tedunderwood.com/2012/04/07/topic-modeling-made-just-simple-enough/">this</a>  ,<a class="reference external" href="https://en.wikipedia.org/wiki/Topic_model">this</a>  ,  <a class="reference external" href="https://www.kaggle.com/arthurtok/spooky-nlp-and-topic-modelling-tutorial">this kernel on Kaggle</a>  ,  <a class="reference external" href="http://blog.echen.me/2011/08/22/introduction-to-latent-dirichlet-allocation/">this</a> .</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">LatentDirichletAllocation</span>
@@ -862,9 +797,7 @@ gempa vs bihalal halal dirasakan guncangan morowali terkini bank juara
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(20, 10)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.01032322 0.01032308 0.90709126 0.01032321 0.01032319 0.01032308
+[[0.01032322 0.01032308 0.90709126 0.01032321 0.01032319 0.01032308
   0.01032351 0.0103232  0.01032302 0.01032323]
  [0.01072433 0.01072439 0.01072439 0.01072452 0.01072441 0.01072434
   0.90348067 0.01072431 0.01072434 0.0107243 ]
@@ -923,8 +856,7 @@ gempa vs bihalal halal dirasakan guncangan morowali terkini bank juara
 </div>
 </div>
 </div>
-<section id="note-that-the-values-in-a-particular-row-adds-to-1-this-is-beacuse-each-value-denotes-the-of-contribution-of-the-corressponding-topic-in-the-document">
-<h3>Note that the values in a particular row adds to 1. This is beacuse each value denotes the % of contribution of the corressponding topic in the document.<a class="headerlink" href="#note-that-the-values-in-a-particular-row-adds-to-1-this-is-beacuse-each-value-denotes-the-of-contribution-of-the-corressponding-topic-in-the-document" title="Permalink to this headline">#</a></h3>
+<p>Perhatikan bahwa nilai dalam baris tertentu ditambahkan ke 1. Ini karena setiap nilai menunjukkan % kontribusi topik terkait dalam dokumen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># composition of doc 0 for eg</span>
@@ -944,15 +876,15 @@ Topic  4 :  1.0323194720162474 %
 Topic  5 :  1.0323076514533123 %
 Topic  6 :  1.0323511454775984 %
 Topic  7 :  1.0323200383865658 %
-Topic  8 :  1.0323017599576698 %
+Topic  8 :  
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0323017599576698 %
 Topic  9 :  1.0323230323222345 %
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-<section id="as-we-can-see-topic-7-8-are-dominantly-present-in-document-0">
-<h3>As we can see Topic 7 &amp; 8 are dominantly present in document 0.<a class="headerlink" href="#as-we-can-see-topic-7-8-are-dominantly-present-in-document-0" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">lda_model</span><span class="o">.</span><span class="n">components_</span><span class="p">)</span>
@@ -973,9 +905,7 @@ Topic  9 :  1.0323230323222345 %
 </div>
 </div>
 </div>
-</section>
-<section id="most-important-words-for-a-topic-say-10-this-time">
-<h3>Most important words for a topic. (say 10 this time.)<a class="headerlink" href="#most-important-words-for-a-topic-say-10-this-time" title="Permalink to this headline">#</a></h3>
+<p>Kata-kata yang paling penting untuk suatu topik. (10 kali)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># most important words for each topic</span>
@@ -1025,9 +955,7 @@ terdapat baterai balik tentunya bidang empat kantor selasa ahad laut
 </div>
 </div>
 </div>
-</section>
-<section id="to-better-visualize-words-in-a-topic-we-can-see-the-word-cloud-for-each-topic-top-50-words-are-plotted">
-<h3>To better visualize words in a topic we can see the word cloud. For each topic top 50 words are plotted.<a class="headerlink" href="#to-better-visualize-words-in-a-topic-we-can-see-the-word-cloud-for-each-topic-top-50-words-are-plotted" title="Permalink to this headline">#</a></h3>
+<p>To better visualize words in a topic we can see the word cloud. For each topic top 50 words are plotted.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wordcloud</span> <span class="kn">import</span> <span class="n">WordCloud</span>
@@ -1050,20 +978,6 @@ terdapat baterai balik tentunya bidang empat kantor selasa ahad laut
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_11092</span><span class="o">/</span><span class="mf">1754887305.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">wordcloud</span> <span class="kn">import</span> <span class="n">WordCloud</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1"># Generate a word cloud image for given topic</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="k">def</span> <span class="nf">draw_word_cloud</span><span class="p">(</span><span class="n">index</span><span class="p">):</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>   <span class="n">imp_words_topic</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>   <span class="n">comp</span><span class="o">=</span><span class="n">lda_model</span><span class="o">.</span><span class="n">components_</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;wordcloud&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1073,15 +987,7 @@ terdapat baterai balik tentunya bidang empat kantor selasa ahad laut
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_3172</span><span class="o">/</span><span class="mf">786484936.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># topic 0</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">draw_word_cloud</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;draw_word_cloud&#39; is not defined
-</pre></div>
-</div>
+<img alt="_images/Modelling_27_0.png" src="_images/Modelling_27_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1092,18 +998,9 @@ terdapat baterai balik tentunya bidang empat kantor selasa ahad laut
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_3172</span><span class="o">/</span><span class="mf">2024154827.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># topic 1</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">draw_word_cloud</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># ...</span>
-
-<span class="ne">NameError</span>: name &#39;draw_word_cloud&#39; is not defined
-</pre></div>
+<img alt="_images/Modelling_28_0.png" src="_images/Modelling_28_0.png" />
 </div>
 </div>
-</div>
-</section>
 </section>
 </section>
 
