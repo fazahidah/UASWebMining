@@ -387,6 +387,7 @@ title="Print to PDF"
   <section class="tex2jax_ignore mathjax_ignore" id="crawling-data">
 <h1>Crawling Data<a class="headerlink" href="#crawling-data" title="Permalink to this headline">#</a></h1>
 <p>Crawling adalah sebuah proses di mana mesin pencarian seperti Google dapat mencari dan memindai konten yang berada di situs web berupa artikel, lembar produk, gambar, link, dll. Mesin pencarian menggunakan alat yang disebut sebagai crawler (juga disebut sebagai bot atau spider) untuk memutuskan situs web mana yang akan dipindai.</p>
+<p>Disini kita akan mengambil data abstrak dari <a class="reference external" href="https://pta.trunojoyo.ac.id">https://pta.trunojoyo.ac.id</a> pada data abstrak ekonomi-manajemen yakni pada <a class="reference external" href="https://pta.trunojoyo.ac.id/welcome/detail/080211100070">https://pta.trunojoyo.ac.id/welcome/detail/080211100070</a></p>
 <section id="import-library">
 <h2>Import Library<a class="headerlink" href="#import-library" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
@@ -402,7 +403,7 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_9604</span><span class="o">/</span><span class="mf">2293443901.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_21032</span><span class="o">/</span><span class="mf">2293443901.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">scrapy.selector</span> <span class="kn">import</span> <span class="n">Selector</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">scrapy.http.request</span> <span class="kn">import</span> <span class="n">Request</span>
 <span class="ne">----&gt; </span><span class="mi">5</span> <span class="kn">from</span> <span class="nn">tempo.items</span> <span class="kn">import</span> <span class="n">TempoItem</span>
@@ -417,17 +418,16 @@ title="Print to PDF"
 <h2>Code<a class="headerlink" href="#code" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">VivaSpider</span><span class="p">(</span><span class="n">scrapy</span><span class="o">.</span><span class="n">Spider</span><span class="p">):</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;tempo&quot;</span>
-    <span class="n">allowed_domains</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;tempo.co&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">PTA</span><span class="p">(</span><span class="n">scrapy</span><span class="o">.</span><span class="n">Spider</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;pta&quot;</span>
     <span class="n">start_urls</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="s2">&quot;https://www.tempo.co/indeks&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;https://pta.trunojoyo.ac.id/welcome/detail/080211100070&quot;</span><span class="p">,</span>
     <span class="p">]</span>
 
     <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; This function parses a property page.</span>
 
-<span class="sd">        @url https://www.tempo.co/indeks</span>
+<span class="sd">        @url https://pta.trunojoyo.ac.id/welcome/detail/080211100070</span>
 <span class="sd">        @returns items</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
@@ -436,8 +436,7 @@ title="Print to PDF"
         <span class="k">for</span> <span class="n">indek</span> <span class="ow">in</span> <span class="n">indeks</span><span class="p">:</span>
             <span class="n">item</span> <span class="o">=</span> <span class="n">TempoItem</span><span class="p">()</span>
             <span class="n">news_link</span> <span class="o">=</span> <span class="n">indek</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;div/div/a[2]/@href&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract_first</span><span class="p">()</span>
-            <span class="n">item</span><span class="p">[</span><span class="s1">&#39;judul&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">indek</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;div/div/a[2]/h2/text()&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract_first</span><span class="p">()</span>
-            <span class="n">item</span><span class="p">[</span><span class="s1">&#39;tanggal&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">indek</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;div/div/a[2]/span/text()&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract_first</span><span class="p">()</span>
+            <span class="n">item</span><span class="p">[</span><span class="s1">&#39;judul&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">indek</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;//*[@id=&quot;content_journal&quot;]/ul/li/div[2]/a/text()&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract_first</span><span class="p">()</span>
             <span class="n">detail_request</span> <span class="o">=</span> <span class="n">Request</span><span class="p">(</span><span class="n">news_link</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">parse_detail</span><span class="p">)</span>
             <span class="n">detail_request</span><span class="o">.</span><span class="n">meta</span><span class="p">[</span><span class="s1">&#39;item&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">item</span>
             <span class="k">yield</span> <span class="n">detail_request</span>
@@ -446,7 +445,7 @@ title="Print to PDF"
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Crawling detail news&quot;</span><span class="p">)</span>
         <span class="n">item</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">meta</span><span class="p">[</span><span class="s1">&#39;item&#39;</span><span class="p">]</span>
         <span class="n">selector</span> <span class="o">=</span> <span class="n">Selector</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
-        <span class="n">description</span> <span class="o">=</span> <span class="n">selector</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;//article&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract_first</span><span class="p">()</span>
+        <span class="n">description</span> <span class="o">=</span> <span class="n">selector</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;//*[@id=&quot;content_journal&quot;]/ul/li/div[4]/div[2]/p&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract_first</span><span class="p">()</span>
         <span class="n">item</span><span class="p">[</span><span class="s1">&#39;deskripsi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">description</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
         <span class="k">return</span> <span class="n">item</span>
 </pre></div>
@@ -456,7 +455,7 @@ title="Print to PDF"
 <p>Masukkan perintah seperti dibawah ini pada terminal untuk merubah data hasil crawl kedalam bentuk csv</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scrapy</span> <span class="n">crawl</span> <span class="n">tempo</span> <span class="o">-</span><span class="n">o</span> <span class="n">beritatempo</span><span class="o">.</span><span class="n">csv</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scrapy</span> <span class="n">crawl</span> <span class="n">pta</span> <span class="o">-</span><span class="n">o</span> <span class="n">ptamanajemen</span><span class="o">.</span><span class="n">csv</span>
 </pre></div>
 </div>
 </div>

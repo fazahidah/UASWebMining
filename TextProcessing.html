@@ -525,7 +525,7 @@ title="Print to PDF"
 <h2>Load Dataset<a class="headerlink" href="#load-dataset" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_berita</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;beritatempo.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_berita</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;ptamanajemen.csv&#39;</span><span class="p">)</span>
 <span class="n">data_berita</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -549,41 +549,21 @@ title="Print to PDF"
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>deskripsi</th>
-      <th>judul</th>
-      <th>tanggal</th>
+      <th>abstrak</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>\n\r\n\t\t\t\t\t\t\tInggris Larang Impor Produ...</td>
-      <td>Inggris Larang Impor Produk Kesehatan Xinjiang...</td>
-      <td>23 April 2022 02:28 WIB</td>
+      <td>ABSTRAK\r\...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>\n\n\nTempo.co\nRamadan\n\n\n\n\nTak Hanya Ind...</td>
-      <td>Tak Hanya Indonesia, 5 Negara Ini Memiliki Tra...</td>
-      <td>23 April 2022 02:38 WIB</td>
+      <td>ABSTRACT...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>\n\r\n\t\t\t\t\t\t\tTumbuh 40,1 Persen, Amar B...</td>
-      <td>Tumbuh 40,1 Persen, Amar Bank Salurkan Pinjama...</td>
-      <td>23 April 2022 04:39 WIB</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>\n\r\n\t\t\t\t\t\t\tKiat Menjaga Kesehatan Hat...</td>
-      <td>Kiat Menjaga Kesehatan Hati</td>
-      <td>23 April 2022 04:36 WIB</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>\n\r\n\t\t\t\t\t\t\tPesenam Kelahiran New York...</td>
-      <td>Pesenam Kelahiran New York Tetap Tak Boleh Ber...</td>
-      <td>23 April 2022 04:36 WIB</td>
+      <td>Electronic journals, also known as ejournals, ...</td>
     </tr>
   </tbody>
 </table>
@@ -596,11 +576,11 @@ title="Print to PDF"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ------ Case Folding --------</span>
 <span class="c1"># gunakan fungsi Series.str.lower() pada Pandas</span>
-<span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;deskripsi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;deskripsi&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;abstrak&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;abstrak&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
 
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Case Folding Result : </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;deskripsi&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;abstrak&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n\n\n</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -608,27 +588,10 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Case Folding Result : 
 
-0     \n\r\n\t\t\t\t\t\t\tinggris larang impor produ...
-1     \n\n\ntempo.co\nramadan\n\n\n\n\ntak hanya ind...
-2     \n\r\n\t\t\t\t\t\t\ttumbuh 40,1 persen, amar b...
-3     \n\r\n\t\t\t\t\t\t\tkiat menjaga kesehatan hat...
-4     \n\r\n\t\t\t\t\t\t\tpesenam kelahiran new york...
-5     \n\r\n\t\t\t\t\t\t\tbursa transfer liga 1: ran...
-6     \n\r\n\t\t\t\t\t\t\tsiaran tv analog dihentika...
-7     \n\r\n\t\t\t\t\t\t\tkualifikasi formula 1 emil...
-8     \n\r\n\t\t\t\t\t\t\tbursa transfer liga 1: psi...
-9     \n\r\n\t\t\t\t\t\t\tgempa terkini di sulawesi ...
-10    \n\r\n\t\t\t\t\t\t\ttop 3 dunia: sekjen pbb in...
-11    \n\r\n\t\t\t\t\t\t\tskuter listrik yamaha e01 ...
-12    \n\r\n\t\t\t\t\t\t\tmudik lebaran, waspada ker...
-13    \n\r\n\t\t\t\t\t\t\tterpopuler bisnis: rincian...
-14    \n\r\n\t\t\t\t\t\t\tprakiraan cuaca bmkg, anti...
-15    \n\r\n\t\t\t\t\t\t\tjadwal bola sabtu malam 23...
-16    \n\r\n\t\t\t\t\t\t\tdengan aplikasi ini, siswa...
-17    \n\r\n\t\t\t\t\t\t\tzendaya absen di met gala ...
-18    \n\r\n\t\t\t\t\t\t\tramalan cuaca: sebagian be...
-19    \n\r\n\t\t\t\t\t\t\tpembatasan halal bihalal l...
-Name: deskripsi, dtype: object
+0                                        abstrak\r\...
+1                                          abstract...
+2    electronic journals, also known as ejournals, ...
+Name: abstrak, dtype: object
 </pre></div>
 </div>
 </div>
@@ -659,46 +622,46 @@ Name: deskripsi, dtype: object
     <span class="c1"># remove incomplete URL</span>
     <span class="k">return</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;http://&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;https://&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">)</span>
                 
-<span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;deskripsi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;deskripsi&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">remove_tweet_special</span><span class="p">)</span>
+<span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;abstrak&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;abstrak&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">remove_tweet_special</span><span class="p">)</span>
 
 <span class="c1">#remove number</span>
 <span class="k">def</span> <span class="nf">remove_number</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
     <span class="k">return</span>  <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\d+&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
 
-<span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;deskripsi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;deskripsi&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">remove_number</span><span class="p">)</span>
+<span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;abstrak&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;abstrak&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">remove_number</span><span class="p">)</span>
 
 <span class="c1">#remove punctuation</span>
 <span class="k">def</span> <span class="nf">remove_punctuation</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">text</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">maketrans</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="n">string</span><span class="o">.</span><span class="n">punctuation</span><span class="p">))</span>
 
-<span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;deskripsi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;deskripsi&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">remove_punctuation</span><span class="p">)</span>
+<span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;abstrak&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;abstrak&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">remove_punctuation</span><span class="p">)</span>
 
 <span class="c1">#remove whitespace leading &amp; trailing</span>
 <span class="k">def</span> <span class="nf">remove_whitespace_LT</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
 
-<span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;deskripsi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;deskripsi&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">remove_whitespace_LT</span><span class="p">)</span>
+<span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;abstrak&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;abstrak&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">remove_whitespace_LT</span><span class="p">)</span>
 
 <span class="c1">#remove multiple whitespace into single whitespace</span>
 <span class="k">def</span> <span class="nf">remove_whitespace_multiple</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="n">text</span><span class="p">)</span>
 
-<span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;deskripsi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;deskripsi&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">remove_whitespace_multiple</span><span class="p">)</span>
+<span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;abstrak&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;abstrak&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">remove_whitespace_multiple</span><span class="p">)</span>
 
 <span class="c1"># remove single char</span>
 <span class="k">def</span> <span class="nf">remove_singl_char</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\b[a-zA-Z]\b&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
 
-<span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;deskripsi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;deskripsi&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">remove_singl_char</span><span class="p">)</span>
+<span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;abstrak&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;abstrak&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">remove_singl_char</span><span class="p">)</span>
 
 <span class="c1"># NLTK word rokenize </span>
 <span class="k">def</span> <span class="nf">word_tokenize_wrapper</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
 
-<span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;deskripsi_tokens&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;deskripsi&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">word_tokenize_wrapper</span><span class="p">)</span>
+<span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;abstrak&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;abstrak&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">word_tokenize_wrapper</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Tokenizing Result : </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span> 
-<span class="nb">print</span><span class="p">(</span><span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;deskripsi_tokens&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;abstrak&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n\n\n</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -706,27 +669,10 @@ Name: deskripsi, dtype: object
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tokenizing Result : 
 
-0     [inggris, larang, impor, produk, kesehatan, xi...
-1     [tempoco, ramadan, tak, hanya, indonesia, nega...
-2     [tumbuh, persen, amar, bank, salurkan, pinjama...
-3     [kiat, menjaga, kesehatan, hati, reporter, bis...
-4     [pesenam, kelahiran, new, york, tetap, tak, bo...
-5     [bursa, transfer, liga, rans, cilegon, fc, kem...
-6     [siaran, tv, analog, dihentikan, april, kominf...
-7     [kualifikasi, formula, emilia, romagna, versta...
-8     [bursa, transfer, liga, psis, semarang, dapatk...
-9     [gempa, terkini, di, sulawesi, tengah, giliran...
-10    [top, dunia, sekjen, pbb, ingin, ketemu, presi...
-11    [skuter, listrik, yamaha, tak, pakai, baterai,...
-12    [mudik, lebaran, waspada, kerawanan, di, jalur...
-13    [terpopuler, bisnis, rincian, aset, ketua, bpk...
-14    [prakiraan, cuaca, bmkg, antisipasi, hujan, da...
-15    [jadwal, bola, sabtu, malam, april, berpeluang...
-16    [dengan, aplikasi, ini, siswa, mau, ujian, bis...
-17    [zendaya, absen, di, met, gala, dua, tahun, be...
-18    [ramalan, cuaca, sebagian, besar, jakarta, aka...
-19    [pembatasan, halal, bihalal, lebaran, terbit, ...
-Name: deskripsi_tokens, dtype: object
+0    [abstrak, satiyah, pengaruh, faktorfaktor, pel...
+1    [abstract, in, an, effort, to, increase, labor...
+2    [electronic, journals, also, known, as, ejourn...
+Name: abstrak, dtype: object
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package punkt to
@@ -745,38 +691,20 @@ Name: deskripsi_tokens, dtype: object
 <span class="k">def</span> <span class="nf">freqDist_wrapper</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">FreqDist</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
 
-<span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;deskripsi_tokens_fdist&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;deskripsi_tokens&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">freqDist_wrapper</span><span class="p">)</span>
+<span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;abstrak&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;abstrak&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">freqDist_wrapper</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Frequency Tokens : </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span> 
-<span class="nb">print</span><span class="p">(</span><span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;deskripsi_tokens_fdist&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">most_common</span><span class="p">()))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;abstrak&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">most_common</span><span class="p">()))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Frequency Tokens : 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     [(di, 10), (yang, 10), (dan, 9), (inggris, 6),...
-1     [(mudik, 18), (di, 18), (tradisi, 11), (yang, ...
-2     [(amar, 11), (bank, 11), (pinjaman, 9), (yang,...
-3     [(hati, 22), (yang, 19), (dan, 16), (untuk, 9)...
-4     [(tidak, 19), (sea, 14), (games, 13), (di, 10)...
-5     [(pemain, 15), (fc, 8), (rans, 6), (cilegon, 6...
-6     [(di, 8), (tahap, 6), (siaran, 5), (tv, 5), (a...
-7     [(di, 13), (yang, 11), (dan, 11), (untuk, 9), ...
-8     [(psis, 11), (fajar, 7), (liga, 6), (pemain, 6...
-9     [(gempa, 11), (yang, 8), (terkini, 6), (di, 6)...
-10    [(di, 28), (yang, 14), (ukraina, 13), (dan, 11...
-11    [(baterai, 13), (listrik, 8), (motor, 8), (yan...
-12    [(jalur, 23), (yogyakarta, 19), (dan, 15), (di...
-13    [(bpk, 5), (berita, 4), (ketua, 3), (bank, 3),...
-14    [(di, 14), (dan, 10), (hujan, 7), (hingga, 6),...
-15    [(vs, 22), (wib, 18), (liga, 14), (akan, 10), ...
-16    [(bisa, 8), (pengajar, 8), (yang, 7), (platfor...
-17    [(dan, 13), (di, 11), (dengan, 11), (akan, 9),...
-18    [(jakarta, 25), (akan, 22), (hujan, 22), (puku...
-19    [(halal, 8), (bihalal, 8), (yang, 5), (edaran,...
-Name: deskripsi_tokens_fdist, dtype: object
+
+0    [(dan, 20), (dengan, 13), (produktivitas, 9), ...
+1    [(the, 25), (of, 21), (and, 18), (to, 12), (pr...
+2    [(are, 4), (they, 4), (electronic, 3), (journa...
+Name: abstrak, dtype: object
 </pre></div>
 </div>
 </div>
@@ -805,7 +733,7 @@ Name: deskripsi_tokens_fdist, dtype: object
 
 <span class="c1"># ----------------------- add stopword from txt file ------------------------------------</span>
 <span class="c1"># read txt stopword using pandas</span>
-<span class="n">txt_stopword</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;beritatempo.csv&quot;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span> <span class="p">[</span><span class="s2">&quot;stopwords&quot;</span><span class="p">],</span> <span class="n">header</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">txt_stopword</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;ptamanajemen.csv&quot;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span> <span class="p">[</span><span class="s2">&quot;stopwords&quot;</span><span class="p">],</span> <span class="n">header</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span>
 
 <span class="c1"># convert stopword string to list &amp; append additional stopword</span>
 <span class="n">list_stopwords</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">txt_stopword</span><span class="p">[</span><span class="s2">&quot;stopwords&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">))</span>
@@ -820,35 +748,18 @@ Name: deskripsi_tokens_fdist, dtype: object
 <span class="k">def</span> <span class="nf">stopwords_removal</span><span class="p">(</span><span class="n">words</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">[</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span> <span class="k">if</span> <span class="n">word</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">list_stopwords</span><span class="p">]</span>
 
-<span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;deskripsi_tokens_WSW&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;deskripsi_tokens&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">stopwords_removal</span><span class="p">)</span> 
+<span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;abstrak&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;abstrak&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">stopwords_removal</span><span class="p">)</span> 
 
 
-<span class="nb">print</span><span class="p">(</span><span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;deskripsi_tokens_WSW&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;abstrak&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     [inggris, larang, impor, produk, kesehatan, xi...
-1     [tempoco, ramadan, indonesia, negara, memiliki...
-2     [tumbuh, persen, amar, bank, salurkan, pinjama...
-3     [kiat, menjaga, kesehatan, hati, reporter, bis...
-4     [pesenam, kelahiran, new, york, berangkat, man...
-5     [bursa, transfer, liga, rans, cilegon, fc, dap...
-6     [siaran, tv, analog, dihentikan, april, kominf...
-7     [kualifikasi, formula, emilia, romagna, versta...
-8     [bursa, transfer, liga, psis, semarang, dapatk...
-9     [gempa, terkini, sulawesi, giliran, morowali, ...
-10    [top, dunia, sekjen, pbb, ketemu, presiden, pu...
-11    [skuter, listrik, yamaha, pakai, baterai, swap...
-12    [mudik, lebaran, waspada, kerawanan, jalur, ma...
-13    [terpopuler, bisnis, rincian, aset, ketua, bpk...
-14    [prakiraan, cuaca, bmkg, antisipasi, hujan, pe...
-15    [jadwal, bola, sabtu, malam, april, berpeluang...
-16    [aplikasi, siswa, ujian, ajari, dosen, profeso...
-17    [zendaya, absen, met, gala, berturutturut, rep...
-18    [ramalan, cuaca, jakarta, diguyur, hujan, pagi...
-19    [pembatasan, halal, bihalal, lebaran, terbit, ...
-Name: deskripsi_tokens_WSW, dtype: object
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    [produktivitas, kerja, pelatihan, pengembangan...
+1    [the, of, and, to, productivity, is, training,...
+2    [are, they, electronic, journals, ejournals, t...
+Name: abstrak, dtype: object
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package stopwords to
@@ -863,45 +774,28 @@ Name: deskripsi_tokens_WSW, dtype: object
 <h2>Normalization<a class="headerlink" href="#normalization" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">normalizad_word</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;beritatempo.csv&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">normalizad_word</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;ptamanajemen.csv&quot;</span><span class="p">)</span>
 
 <span class="n">normalizad_word_dict</span> <span class="o">=</span> <span class="p">{}</span>
 
 <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">normalizad_word</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
     <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">normalizad_word_dict</span><span class="p">:</span>
-        <span class="n">normalizad_word_dict</span><span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> 
+        <span class="n">normalizad_word_dict</span><span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> 
 
 <span class="k">def</span> <span class="nf">normalized_term</span><span class="p">(</span><span class="n">document</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">[</span><span class="n">normalizad_word_dict</span><span class="p">[</span><span class="n">term</span><span class="p">]</span> <span class="k">if</span> <span class="n">term</span> <span class="ow">in</span> <span class="n">normalizad_word_dict</span> <span class="k">else</span> <span class="n">term</span> <span class="k">for</span> <span class="n">term</span> <span class="ow">in</span> <span class="n">document</span><span class="p">]</span>
 
-<span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;deskripsi_normalized&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;deskripsi_tokens_WSW&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">normalized_term</span><span class="p">)</span>
+<span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;abstrak&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;abstrak&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">normalized_term</span><span class="p">)</span>
 
-<span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;deskripsi_normalized&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;abstrak&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     [inggris, larang, impor, produk, kesehatan, xi...
-1     [tempoco, ramadan, indonesia, negara, memiliki...
-2     [tumbuh, persen, amar, bank, salurkan, pinjama...
-3     [kiat, menjaga, kesehatan, hati, reporter, bis...
-4     [pesenam, kelahiran, new, york, berangkat, man...
-5     [bursa, transfer, liga, rans, cilegon, fc, dap...
-6     [siaran, tv, analog, dihentikan, april, kominf...
-7     [kualifikasi, formula, emilia, romagna, versta...
-8     [bursa, transfer, liga, psis, semarang, dapatk...
-9     [gempa, terkini, sulawesi, giliran, morowali, ...
-10    [top, dunia, sekjen, pbb, ketemu, presiden, pu...
-11    [skuter, listrik, yamaha, pakai, baterai, swap...
-12    [mudik, lebaran, waspada, kerawanan, jalur, ma...
-13    [terpopuler, bisnis, rincian, aset, ketua, bpk...
-14    [prakiraan, cuaca, bmkg, antisipasi, hujan, pe...
-15    [jadwal, bola, sabtu, malam, april, berpeluang...
-16    [aplikasi, siswa, ujian, ajari, dosen, profeso...
-17    [zendaya, absen, met, gala, berturutturut, rep...
-18    [ramalan, cuaca, jakarta, diguyur, hujan, pagi...
-19    [pembatasan, halal, bihalal, lebaran, terbit, ...
-Name: deskripsi_normalized, dtype: object
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    [produktivitas, kerja, pelatihan, pengembangan...
+1    [the, of, and, to, productivity, is, training,...
+2    [are, they, electronic, journals, ejournals, t...
+Name: abstrak, dtype: object
 </pre></div>
 </div>
 </div>
@@ -909,7 +803,7 @@ Name: deskripsi_normalized, dtype: object
 </section>
 <section id="stemming">
 <h2>Stemming<a class="headerlink" href="#stemming" title="Permalink to this headline">#</a></h2>
-<div class="cell tag_outputPrepend docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import Sastrawi package</span>
 <span class="kn">from</span> <span class="nn">Sastrawi.Stemmer.StemmerFactory</span> <span class="kn">import</span> <span class="n">StemmerFactory</span>
@@ -926,7 +820,7 @@ Name: deskripsi_normalized, dtype: object
 
 <span class="n">term_dict</span> <span class="o">=</span> <span class="p">{}</span>
 
-<span class="k">for</span> <span class="n">document</span> <span class="ow">in</span> <span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;deskripsi_normalized&#39;</span><span class="p">]:</span>
+<span class="k">for</span> <span class="n">document</span> <span class="ow">in</span> <span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;abstrak&#39;</span><span class="p">]:</span>
     <span class="k">for</span> <span class="n">term</span> <span class="ow">in</span> <span class="n">document</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">term</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">term_dict</span><span class="p">:</span>
             <span class="n">term_dict</span><span class="p">[</span><span class="n">term</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span>
@@ -948,68 +842,72 @@ Name: deskripsi_normalized, dtype: object
 <span class="k">def</span> <span class="nf">get_stemmed_term</span><span class="p">(</span><span class="n">document</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">[</span><span class="n">term_dict</span><span class="p">[</span><span class="n">term</span><span class="p">]</span> <span class="k">for</span> <span class="n">term</span> <span class="ow">in</span> <span class="n">document</span><span class="p">]</span>
 
-<span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;deskripsi_tokens_stemmed&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;deskripsi_normalized&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">swifter</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">get_stemmed_term</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;deskripsi_tokens_stemmed&#39;</span><span class="p">])</span>
+<span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;abstrak&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;abstrak&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">swifter</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">get_stemmed_term</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;abstrak&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2248
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>292
 ------------------------
 </pre></div>
 </div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_1364</span><span class="o">/</span><span class="mf">3556183788.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">25</span>     <span class="n">i</span><span class="o">=</span><span class="mi">0</span>
-<span class="g g-Whitespace">     </span><span class="mi">26</span>     <span class="k">if</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">27</span>         <span class="n">term_dict</span><span class="p">[</span><span class="n">term</span><span class="p">]</span> <span class="o">=</span> <span class="n">stemmed_wrapper</span><span class="p">(</span><span class="n">term</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">28</span>         <span class="c1">#print(term,&quot;:&quot; ,term_dict[term])</span>
-<span class="g g-Whitespace">     </span><span class="mi">29</span> 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;produktivitas&#39;: &#39;produktivitas&#39;, &#39;kerja&#39;: &#39;kerja&#39;, &#39;pelatihan&#39;: &#39;latih&#39;, &#39;pengembangan&#39;: &#39;kembang&#39;, &#39;pegawai&#39;: &#39;pegawai&#39;, &#39;dinas&#39;: &#39;dinas&#39;, &#39;kelautan&#39;: &#39;laut&#39;, &#39;perikanan&#39;: &#39;ikan&#39;, &#39;bangkalan&#39;: &#39;bangkal&#39;, &#39;pengaruh&#39;: &#39;pengaruh&#39;, &#39;faktorfaktor&#39;: &#39;faktorfaktor&#39;, &#39;penelitian&#39;: &#39;teliti&#39;, &#39;meningkat&#39;: &#39;tingkat&#39;, &#39;instansi&#39;: &#39;instansi&#39;, &#39;hubungan&#39;: &#39;hubung&#39;, &#39;metode&#39;: &#39;metode&#39;, &#39;seleksi&#39;: &#39;seleksi&#39;, &#39;variabel&#39;: &#39;variabel&#39;, &#39;responden&#39;: &#39;responden&#39;, &#39;dianalisis&#39;: &#39;analis&#39;, &#39;sampling&#39;: &#39;sampling&#39;, &#39;analisis&#39;: &#39;analisis&#39;, &#39;jabatan&#39;: &#39;jabat&#39;, &#39;motivasi&#39;: &#39;motivasi&#39;, &#39;peserta&#39;: &#39;serta&#39;, &#39;kabupaten&#39;: &#39;kabupaten&#39;, &#39;terbukti&#39;: &#39;bukti&#39;, &#39;nilai&#39;: &#39;nilai&#39;, &#39;satiyah&#39;: &#39;satiyah&#39;, &#39;dibawah&#39;: &#39;bawah&#39;, &#39;bimbingan&#39;: &#39;bimbing&#39;, &#39;drahjsanugrahini&#39;: &#39;drahjsanugrahini&#39;, &#39;irawatimm&#39;: &#39;irawatimm&#39;, &#39;helmi&#39;: &#39;helm&#39;, &#39;buyung&#39;: &#39;buyung&#39;, &#39;auliasstsemmt&#39;: &#39;auliasstsemmt&#39;, &#39;upaya&#39;: &#39;upaya&#39;, &#39;meningkatkan&#39;: &#39;tingkat&#39;, &#39;mudah&#39;: &#39;mudah&#39;, &#39;salah&#39;: &#39;salah&#39;, &#39;usaha&#39;: &#39;usaha&#39;, &#39;menerapkan&#39;: &#39;terap&#39;, &#39;program&#39;: &#39;program&#39;, &#39;sumber&#39;: &#39;sumber&#39;, &#39;daya&#39;: &#39;daya&#39;, &#39;manusia&#39;: &#39;manusia&#39;, &#39;sdm&#39;: &#39;sdm&#39;, &#39;dilaksanakan&#39;: &#39;laksana&#39;, &#39;tercapai&#39;: &#39;capai&#39;, &#39;kemampuan&#39;: &#39;mampu&#39;, &#39;efektif&#39;: &#39;efektif&#39;, &#39;efisien&#39;: &#39;efisien&#39;, &#39;pengembnagan&#39;: &#39;pengembnagan&#39;, &#39;diharapkan&#39;: &#39;harap&#39;, &#39;menyesuaikan&#39;: &#39;sesuai&#39;, &#39;kebutuhankebutuhan&#39;: &#39;kebutuhankebutuhan&#39;, &#39;sikap&#39;: &#39;sikap&#39;, &#39;tingkah&#39;: &#39;tingkah&#39;, &#39;laku&#39;: &#39;laku&#39;, &#39;keterampilan&#39;: &#39;terampil&#39;, &#39;pengetahuan&#39;: &#39;tahu&#39;, &#39;sesuai&#39;: &#39;sesuai&#39;, &#39;tuntutan&#39;: &#39;tuntut&#39;, &#39;perubahan&#39;: &#39;ubah&#39;, &#39;mendukung&#39;: &#39;dukung&#39;, &#39;terciptanya&#39;: &#39;cipta&#39;, &#39;suasana&#39;: &#39;suasana&#39;, &#39;kondusif&#39;: &#39;kondusif&#39;, &#39;produktivitasi&#39;: &#39;produktivitas&#39;, &#39;tujuan&#39;: &#39;tuju&#39;, &#39;mengukur&#39;: &#39;ukur&#39;, &#39;menganalisa&#39;: &#39;menganalisa&#39;, &#39;peneliti&#39;: &#39;teliti&#39;, &#39;pendekatan&#39;: &#39;dekat&#39;, &#39;observasional&#39;: &#39;observasional&#39;, &#39;analitik&#39;: &#39;analitik&#39;, &#39;pengamatan&#39;: &#39;amat&#39;, &#39;langsung&#39;: &#39;langsung&#39;, &#39;penyebaran&#39;: &#39;sebar&#39;, &#39;kuisioner&#39;: &#39;kuisioner&#39;, &#39;populasi&#39;: &#39;populasi&#39;, &#39;sampel&#39;: &#39;sampel&#39;, &#39;diolah&#39;: &#39;olah&#39;, &#39;spss&#39;: &#39;spss&#39;, &#39;versi&#39;: &#39;versi&#39;, &#39;statistik&#39;: &#39;statistik&#39;, &#39;non&#39;: &#39;non&#39;, &#39;probality&#39;: &#39;probality&#39;, &#39;simple&#39;: &#39;simple&#39;, &#39;random&#39;: &#39;random&#39;, &#39;kesimpulan&#39;: &#39;simpul&#39;, &#39;perbedaan&#39;: &#39;beda&#39;, &#39;individu&#39;: &#39;individu&#39;, &#39;partisipasi&#39;: &#39;partisipasi&#39;, &#39;aktif&#39;: &#39;aktif&#39;, &#39;instruktur&#39;: &#39;instruktur&#39;, &#39;simultan&#39;: &#39;simultan&#39;, &#39;koefisien&#39;: &#39;koefisien&#39;, &#39;determinasi&#39;: &#39;determinasi&#39;, &#39;berganda&#39;: &#39;ganda&#39;, &#39;square&#39;: &#39;square&#39;, &#39;fhitung&#39;: &#39;fhitung&#39;, &#39;ftabel&#39;: &#39;ftabel&#39;, &#39;faktor&#39;: &#39;faktor&#39;, &#39;berpengaruh&#39;: &#39;pengaruh&#39;, &#39;parsial&#39;: &#39;parsial&#39;, &#39;pengujian&#39;: &#39;uji&#39;, &#39;hipotesis&#39;: &#39;hipotesis&#39;, &#39;thitung&#39;: &#39;thitung&#39;, &#39;dominan&#39;: &#39;dominan&#39;, &#39;kunci&#39;: &#39;kunci&#39;, &#39;the&#39;: &#39;the&#39;, &#39;of&#39;: &#39;of&#39;, &#39;and&#39;: &#39;and&#39;, &#39;to&#39;: &#39;to&#39;, &#39;productivity&#39;: &#39;productivity&#39;, &#39;is&#39;: &#39;is&#39;, &#39;training&#39;: &#39;training&#39;, &#39;development&#39;: &#39;development&#39;, &#39;employees&#39;: &#39;employees&#39;, &#39;with&#39;: &#39;with&#39;, &#39;in&#39;: &#39;in&#39;, &#39;agency&#39;: &#39;agency&#39;, &#39;marine&#39;: &#39;marine&#39;, &#39;fisheries&#39;: &#39;fisheries&#39;, &#39;that&#39;: &#39;that&#39;, &#39;working&#39;: &#39;working&#39;, &#39;study&#39;: &#39;study&#39;, &#39;increase&#39;: &#39;increase&#39;, &#39;be&#39;: &#39;be&#39;, &#39;by&#39;: &#39;by&#39;, &#39;work&#39;: &#39;work&#39;, &#39;this&#39;: &#39;this&#39;, &#39;factors&#39;: &#39;factors&#39;, &#39;relationship&#39;: &#39;relationship&#39;, &#39;analysis&#39;: &#39;analysis&#39;, &#39;selection&#39;: &#39;selection&#39;, &#39;on&#39;: &#39;on&#39;, &#39;an&#39;: &#39;an&#39;, &#39;effort&#39;: &#39;effort&#39;, &#39;not&#39;: &#39;not&#39;, &#39;can&#39;: &#39;can&#39;, &#39;which&#39;: &#39;which&#39;, &#39;much&#39;: &#39;much&#39;, &#39;influence&#39;: &#39;influence&#39;, &#39;department&#39;: &#39;department&#39;, &#39;namely&#39;: &#39;namely&#39;, &#39;respondents&#39;: &#39;respondents&#39;, &#39;methods&#39;: &#39;methods&#39;, &#39;motivation&#39;: &#39;motivation&#39;, &#39;participants&#39;: &#39;participants&#39;, &#39;effect&#39;: &#39;effect&#39;, &#39;as&#39;: &#39;as&#39;, &#39;abstract&#39;: &#39;abstract&#39;, &#39;labor&#39;: &#39;labor&#39;, &#39;easy&#39;: &#39;easy&#39;, &#39;because&#39;: &#39;because&#39;, &#39;its&#39;: &#39;its&#39;, &#39;one&#39;: &#39;one&#39;, &#39;implement&#39;: &#39;implement&#39;, &#39;programs&#39;: &#39;programs&#39;, &#39;human&#39;: &#39;human&#39;, &#39;resource&#39;: &#39;resource&#39;, &#39;need&#39;: &#39;need&#39;, &#39;implemented&#39;: &#39;implemented&#39;, &#39;so&#39;: &#39;so&#39;, &#39;high&#39;: &#39;high&#39;, &#39;achieved&#39;: &#39;achieved&#39;, &#39;increasing&#39;: &#39;increasing&#39;, &#39;ability&#39;: &#39;ability&#39;, &#39;effectively&#39;: &#39;effectively&#39;, &#39;efficiently&#39;: &#39;efficiently&#39;, &#39;also&#39;: &#39;also&#39;, &#39;expected&#39;: &#39;expected&#39;, &#39;able&#39;: &#39;able&#39;, &#39;adjust&#39;: &#39;adjust&#39;, &#39;new&#39;: &#39;new&#39;, &#39;needs&#39;: &#39;needs&#39;, &#39;attitude&#39;: &#39;attitude&#39;, &#39;behavior&#39;: &#39;behavior&#39;, &#39;skills&#39;: &#39;skills&#39;, &#39;knowledge&#39;: &#39;knowledge&#39;, &#39;accordance&#39;: &#39;accordance&#39;, &#39;changing&#39;: &#39;changing&#39;, &#39;demands&#39;: &#39;demands&#39;, &#39;good&#39;: &#39;good&#39;, &#39;support&#39;: &#39;support&#39;, &#39;creation&#39;: &#39;creation&#39;, &#39;conducive&#39;: &#39;conducive&#39;, &#39;atmosphere&#39;: &#39;atmosphere&#39;, &#39;institutions&#39;: &#39;institutions&#39;, &#39;self&#39;: &#39;self&#39;, &#39;will&#39;: &#39;will&#39;, &#39;purpose&#39;: &#39;purpose&#39;, &#39;know&#39;: &#39;know&#39;, &#39;how&#39;: &#39;how&#39;, &#39;against&#39;: &#39;against&#39;, &#39;employment&#39;: &#39;employment&#39;, &#39;measure&#39;: &#39;measure&#39;, &#39;analyze&#39;: &#39;analyze&#39;, &#39;between&#39;: &#39;between&#39;, &#39;two&#39;: &#39;two&#39;, &#39;variables&#39;: &#39;variables&#39;, &#39;above&#39;: &#39;above&#39;, &#39;researchers&#39;: &#39;researchers&#39;, &#39;used&#39;: &#39;used&#39;, &#39;observational&#39;: &#39;observational&#39;, &#39;analytic&#39;: &#39;analytic&#39;, &#39;approach&#39;: &#39;approach&#39;, &#39;make&#39;: &#39;make&#39;, &#39;observations&#39;: &#39;observations&#39;, &#39;directly&#39;: &#39;directly&#39;, &#39;spread&#39;: &#39;spread&#39;, &#39;questionnaire&#39;: &#39;questionnaire&#39;, &#39;for&#39;: &#39;for&#39;, &#39;population&#39;: &#39;population&#39;, &#39;sample&#39;: &#39;sample&#39;, &#39;processed&#39;: &#39;processed&#39;, &#39;version&#39;: &#39;version&#39;, &#39;analyzed&#39;: &#39;analyzed&#39;, &#39;using&#39;: &#39;using&#39;, &#39;statistical&#39;: &#39;statistical&#39;, &#39;method&#39;: &#39;method&#39;, &#39;conclusions&#39;: &#39;conclusions&#39;, &#39;are&#39;: &#39;are&#39;, &#39;consists&#39;: &#39;consists&#39;, &#39;individual&#39;: &#39;individual&#39;, &#39;differences&#39;: &#39;differences&#39;, &#39;position&#39;: &#39;position&#39;, &#39;active&#39;: &#39;active&#39;, &#39;participation&#39;: &#39;participation&#39;, &#39;instructors&#39;: &#39;instructors&#39;, &#39;have&#39;: &#39;have&#39;, &#39;simultaneous&#39;: &#39;simultaneous&#39;, &#39;evidenced&#39;: &#39;evidenced&#39;, &#39;value&#39;: &#39;value&#39;, &#39;coefficient&#39;: &#39;coefficient&#39;, &#39;multiple&#39;: &#39;multiple&#39;, &#39;determination&#39;: &#39;determination&#39;, &#39;or&#39;: &#39;or&#39;, &#39;fstatistic&#39;: &#39;fstatistic&#39;, &#39;ftable&#39;: &#39;ftable&#39;, &#39;greater&#39;: &#39;greater&#39;, &#39;than&#39;: &#39;than&#39;, &#39;factor&#39;: &#39;factor&#39;, &#39;term&#39;: &#39;term&#39;, &#39;partial&#39;: &#39;partial&#39;, &#39;no&#39;: &#39;no&#39;, &#39;testing&#39;: &#39;testing&#39;, &#39;second&#39;: &#39;second&#39;, &#39;hypothesis&#39;: &#39;hypothesis&#39;, &#39;suggests&#39;: &#39;suggests&#39;, &#39;variable&#39;: &#39;variable&#39;, &#39;proven&#39;: &#39;proven&#39;, &#39;seen&#39;: &#39;seen&#39;, &#39;from&#39;: &#39;from&#39;, &#39;tcount&#39;: &#39;tcount&#39;, &#39;indicates&#39;: &#39;indicates&#39;, &#39;has&#39;: &#39;has&#39;, &#39;dominant&#39;: &#39;dominant&#39;, &#39;at&#39;: &#39;at&#39;, &#39;keywords&#39;: &#39;keywords&#39;, &#39;they&#39;: &#39;they&#39;, &#39;electronic&#39;: &#39;electronic&#39;, &#39;journals&#39;: &#39;journals&#39;, &#39;ejournals&#39;: &#39;ejournals&#39;, &#39;known&#39;: &#39;known&#39;, &#39;scholarly&#39;: &#39;scholarly&#39;, &#39;intellectual&#39;: &#39;intellectual&#39;, &#39;magazines&#39;: &#39;magazines&#39;, &#39;accessed&#39;: &#39;accessed&#39;, &#39;via&#39;: &#39;via&#39;, &#39;transmission&#39;: &#39;transmission&#39;, &#39;practice&#39;: &#39;practice&#39;, &#39;means&#39;: &#39;means&#39;, &#39;usually&#39;: &#39;usually&#39;, &#39;published&#39;: &#39;published&#39;, &#39;web&#39;: &#39;web&#39;, &#39;specialized&#39;: &#39;specialized&#39;, &#39;form&#39;: &#39;form&#39;, &#39;document&#39;: &#39;document&#39;, &#39;providing&#39;: &#39;providing&#39;, &#39;material&#39;: &#39;material&#39;, &#39;academic&#39;: &#39;academic&#39;, &#39;research&#39;: &#39;research&#39;, &#39;formatted&#39;: &#39;formatted&#39;, &#39;approximately&#39;: &#39;approximately&#39;, &#39;like&#39;: &#39;like&#39;, &#39;journal&#39;: &#39;journal&#39;, &#39;articles&#39;: &#39;articles&#39;, &#39;traditional&#39;: &#39;traditional&#39;, &#39;printed&#39;: &#39;printed&#39;}
+------------------------
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "7ce2bed0029c49b08c8fcea5946d97a6"}
+</script><div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">c:\users\fatin\appdata\local\programs\python\python39\lib\site-packages\swifter\swifter.py</span> in <span class="ni">apply</span><span class="nt">(self, func, convert_dtype, args, **kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">238</span>             <span class="k">with</span> <span class="n">suppress_stdout_stderr_logging</span><span class="p">():</span>
+<span class="ne">--&gt; </span><span class="mi">239</span>                 <span class="n">tmp_df</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">sample</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">240</span>                 <span class="n">sample_df</span> <span class="o">=</span> <span class="n">sample</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">convert_dtype</span><span class="o">=</span><span class="n">convert_dtype</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
 
-<span class="nn">~\AppData\Local\Temp/ipykernel_1364/3556183788.py</span> in <span class="ni">stemmed_wrapper</span><span class="nt">(term)</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="c1"># stemmed</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="k">def</span> <span class="nf">stemmed_wrapper</span><span class="p">(</span><span class="n">term</span><span class="p">):</span>
-<span class="ne">---&gt; </span><span class="mi">12</span>     <span class="k">return</span> <span class="n">stemmer</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">term</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span> 
-<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="n">term_dict</span> <span class="o">=</span> <span class="p">{}</span>
-
-<span class="nn">c:\users\fatin\appdata\local\programs\python\python39\lib\site-packages\Sastrawi\Stemmer\CachedStemmer.py</span> in <span class="ni">stem</span><span class="nt">(self, text)</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span>                 <span class="n">stems</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">word</span><span class="p">))</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span>             <span class="k">else</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">20</span>                 <span class="n">stem</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegatedStemmer</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">21</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">stem</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span>                 <span class="n">stems</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">stem</span><span class="p">)</span>
-
-<span class="nn">c:\users\fatin\appdata\local\programs\python\python39\lib\site-packages\Sastrawi\Stemmer\Stemmer.py</span> in <span class="ni">stem</span><span class="nt">(self, text)</span>
-<span class="g g-Whitespace">     </span><span class="mi">25</span> 
-<span class="g g-Whitespace">     </span><span class="mi">26</span>         <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">27</span>             <span class="n">stems</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stem_word</span><span class="p">(</span><span class="n">word</span><span class="p">))</span>
-<span class="g g-Whitespace">     </span><span class="mi">28</span> 
-<span class="g g-Whitespace">     </span><span class="mi">29</span>         <span class="k">return</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">stems</span><span class="p">)</span>
-
-<span class="nn">c:\users\fatin\appdata\local\programs\python\python39\lib\site-packages\Sastrawi\Stemmer\Stemmer.py</span> in <span class="ni">stem_word</span><span class="nt">(self, word)</span>
-<span class="g g-Whitespace">     </span><span class="mi">34</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">stem_plural_word</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">35</span>         <span class="k">else</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">36</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">stem_singular_word</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+<span class="nn">~\AppData\Local\Temp/ipykernel_15876/141925463.py</span> in <span class="ni">get_stemmed_term</span><span class="nt">(document)</span>
+<span class="g g-Whitespace">     </span><span class="mi">35</span> <span class="k">def</span> <span class="nf">get_stemmed_term</span><span class="p">(</span><span class="n">document</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">36</span>     <span class="k">return</span> <span class="p">[</span><span class="n">term_dict</span><span class="p">[</span><span class="n">term</span><span class="p">]</span> <span class="k">for</span> <span class="n">term</span> <span class="ow">in</span> <span class="n">document</span><span class="p">]</span>
 <span class="g g-Whitespace">     </span><span class="mi">37</span> 
-<span class="g g-Whitespace">     </span><span class="mi">38</span>     <span class="k">def</span> <span class="nf">is_plural</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">word</span><span class="p">):</span>
 
-<span class="nn">c:\users\fatin\appdata\local\programs\python\python39\lib\site-packages\Sastrawi\Stemmer\Stemmer.py</span> in <span class="ni">stem_singular_word</span><span class="nt">(self, word)</span>
-<span class="g g-Whitespace">     </span><span class="mi">82</span>         <span class="sd">&quot;&quot;&quot;Stem a singular word to its common stem form.&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">83</span>         <span class="n">context</span> <span class="o">=</span> <span class="n">Context</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dictionary</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">visitor_provider</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">84</span>         <span class="n">context</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">85</span> 
-<span class="g g-Whitespace">     </span><span class="mi">86</span>         <span class="k">return</span> <span class="n">context</span><span class="o">.</span><span class="n">result</span>
+<span class="nn">~\AppData\Local\Temp/ipykernel_15876/141925463.py</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
+<span class="g g-Whitespace">     </span><span class="mi">35</span> <span class="k">def</span> <span class="nf">get_stemmed_term</span><span class="p">(</span><span class="n">document</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">36</span>     <span class="k">return</span> <span class="p">[</span><span class="n">term_dict</span><span class="p">[</span><span class="n">term</span><span class="p">]</span> <span class="k">for</span> <span class="n">term</span> <span class="ow">in</span> <span class="n">document</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">37</span> 
 
-<span class="nn">c:\users\fatin\appdata\local\programs\python\python39\lib\site-packages\Sastrawi\Stemmer\Context\Context.py</span> in <span class="ni">execute</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">     </span><span class="mi">41</span>             <span class="bp">self</span><span class="o">.</span><span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_word</span>
-<span class="g g-Whitespace">     </span><span class="mi">42</span>         <span class="k">else</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">43</span>             <span class="bp">self</span><span class="o">.</span><span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">original_word</span>
-<span class="g g-Whitespace">     </span><span class="mi">44</span> 
-<span class="g g-Whitespace">     </span><span class="mi">45</span>     <span class="k">def</span> <span class="nf">start_stemming_process</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="ne">TypeError</span>: unhashable type: &#39;list&#39;
 
-<span class="ne">KeyboardInterrupt</span>: 
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_15876</span><span class="o">/</span><span class="mf">141925463.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">36</span>     <span class="k">return</span> <span class="p">[</span><span class="n">term_dict</span><span class="p">[</span><span class="n">term</span><span class="p">]</span> <span class="k">for</span> <span class="n">term</span> <span class="ow">in</span> <span class="n">document</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">37</span> 
+<span class="ne">---&gt; </span><span class="mi">38</span> <span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;abstrak&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;abstrak&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">swifter</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">get_stemmed_term</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">39</span> <span class="nb">print</span><span class="p">(</span><span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;abstrak&#39;</span><span class="p">])</span>
+
+<span class="nn">c:\users\fatin\appdata\local\programs\python\python39\lib\site-packages\swifter\swifter.py</span> in <span class="ni">apply</span><span class="nt">(self, func, convert_dtype, args, **kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">257</span>                 <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_progress_bar</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">258</span>                     <span class="n">tqdm</span><span class="o">.</span><span class="n">pandas</span><span class="p">(</span><span class="n">desc</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_progress_bar_desc</span> <span class="ow">or</span> <span class="s2">&quot;Pandas Apply&quot;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">259</span>                     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_obj</span><span class="o">.</span><span class="n">progress_apply</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">convert_dtype</span><span class="o">=</span><span class="n">convert_dtype</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">260</span>                 <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">261</span>                     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_obj</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">convert_dtype</span><span class="o">=</span><span class="n">convert_dtype</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+
+<span class="nn">c:\users\fatin\appdata\local\programs\python\python39\lib\site-packages\tqdm\std.py</span> in <span class="ni">inner</span><span class="nt">(df, func, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">792</span> 
+<span class="g g-Whitespace">    </span><span class="mi">793</span>                 <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">794</span>                     <span class="n">func</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">_is_builtin_func</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">795</span>                 <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">796</span>                     <span class="k">pass</span>
+
+<span class="nn">c:\users\fatin\appdata\local\programs\python\python39\lib\site-packages\pandas\core\generic.py</span> in <span class="ni">__getattr__</span><span class="nt">(self, name)</span>
+<span class="g g-Whitespace">   </span><span class="mi">5573</span>         <span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">5574</span>             <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+<span class="ne">-&gt; </span><span class="mi">5575</span>         <span class="k">return</span> <span class="nb">object</span><span class="o">.</span><span class="fm">__getattribute__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">5576</span> 
+<span class="g g-Whitespace">   </span><span class="mi">5577</span>     <span class="k">def</span> <span class="fm">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="ne">AttributeError</span>: &#39;Series&#39; object has no attribute &#39;_is_builtin_func&#39;
 </pre></div>
 </div>
 </div>
@@ -1032,8 +930,8 @@ Name: deskripsi_normalized, dtype: object
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="n">data_berita</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;TextPreprocessing.csv&quot;</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;deskripsi_tokens&quot;</span><span class="p">])</span>
-<span class="n">data_berita</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;deskripsi&quot;</span><span class="p">]</span>
+<span class="n">data_berita</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;TextPreprocessing.csv&quot;</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;abstrak&quot;</span><span class="p">])</span>
+<span class="n">data_berita</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;abstrak&quot;</span><span class="p">]</span>
 
 <span class="n">data_berita</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
 </pre></div>
@@ -1058,89 +956,21 @@ Name: deskripsi_normalized, dtype: object
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>deskripsi</th>
+      <th>abstrak</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>['inggris', 'larang', 'impor', 'produk', 'kese...</td>
+      <td>['produktivitas', 'kerja', 'pelatihan', 'penge...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>['tempoco', 'ramadan', 'tak', 'hanya', 'indone...</td>
+      <td>['the', 'of', 'and', 'to', 'productivity', 'is...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>['tumbuh', 'persen', 'amar', 'bank', 'salurkan...</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>['kiat', 'menjaga', 'kesehatan', 'hati', 'repo...</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>['pesenam', 'kelahiran', 'new', 'york', 'tetap...</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>['bursa', 'transfer', 'liga', 'rans', 'cilegon...</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>['siaran', 'tv', 'analog', 'dihentikan', 'apri...</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>['kualifikasi', 'formula', 'emilia', 'romagna'...</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>['bursa', 'transfer', 'liga', 'psis', 'semaran...</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>['gempa', 'terkini', 'di', 'sulawesi', 'tengah...</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>['top', 'dunia', 'sekjen', 'pbb', 'ingin', 'ke...</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>['skuter', 'listrik', 'yamaha', 'tak', 'pakai'...</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>['mudik', 'lebaran', 'waspada', 'kerawanan', '...</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>['terpopuler', 'bisnis', 'rincian', 'aset', 'k...</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>['prakiraan', 'cuaca', 'bmkg', 'antisipasi', '...</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>['jadwal', 'bola', 'sabtu', 'malam', 'april', ...</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>['dengan', 'aplikasi', 'ini', 'siswa', 'mau', ...</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>['zendaya', 'absen', 'di', 'met', 'gala', 'dua...</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>['ramalan', 'cuaca', 'sebagian', 'besar', 'jak...</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>['pembatasan', 'halal', 'bihalal', 'lebaran', ...</td>
+      <td>['are', 'they', 'electronic', 'journals', 'ejo...</td>
     </tr>
   </tbody>
 </table>
@@ -1149,12 +979,12 @@ Name: deskripsi_normalized, dtype: object
 </section>
 <section id="term-frekuensi">
 <h2>Term Frekuensi<a class="headerlink" href="#term-frekuensi" title="Permalink to this headline">#</a></h2>
-<div class="cell tag_outputPrepend docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">CountVectorizer</span>
 
 <span class="n">a</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">document</span><span class="p">)</span>
-<span class="n">document</span> <span class="o">=</span> <span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;deskripsi&#39;</span><span class="p">]</span>
+<span class="n">document</span> <span class="o">=</span> <span class="n">data_berita</span><span class="p">[</span><span class="s1">&#39;abstrak&#39;</span><span class="p">]</span>
 
 <span class="c1"># Create a Vectorizer Object</span>
 <span class="n">vectorizer</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">()</span>
@@ -1174,15 +1004,35 @@ Name: deskripsi_normalized, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>: 479, &#39;bmkg&#39;: 321, &#39;relatif&#39;: 1943, &#39;dekat&#39;: 441, &#39;daratanbmkg&#39;: 430, &#39;menyebut&#39;: 1449, &#39;skalaguncangan&#39;: 2192, &#39;dirasakandi&#39;: 544, &#39;morowalidan&#39;: 1517, &#39;sekitarnya&#39;: 2089, &#39;gambar&#39;: 690, &#39;intensitas&#39;: 830, &#39;setidaknya&#39;: 2157, &#39;dirasakan&#39;: 543, &#39;skala&#39;: 2191, &#39;iii&#39;: 796, &#39;mmi&#39;: 1499, &#39;setara&#39;: 2149, &#39;getaran&#39;: 706, &#39;rumah&#39;: 1999, &#39;truk&#39;: 2405, &#39;melintasgempa&#39;: 1288, &#39;untukditeruskan&#39;: 2450, &#39;bunyi&#39;: 349, &#39;arahan&#39;: 93, &#39;diberikan&#39;: 485, &#39;disarankannya&#39;: 554, &#39;kemudian&#39;: 1010, &#39;hatihati&#39;: 756, &#39;bumi&#39;: 348, &#39;susulan&#39;: 2241, &#39;berselang&#39;: 279, &#39;poso&#39;: 1837, &#39;ibukota&#39;: 794, &#39;provinsi&#39;: 1872, &#39;berkekuatan&#39;: 249, &#39;berpusat&#39;: 276, &#39;darat&#39;: 429, &#39;mmicatatandalam&#39;: 1500, &#39;informasi&#39;: 812, &#39;telahdisusulkan&#39;: 2287, &#39;pagi&#39;: 1615, &#39;bahodopi&#39;: 143, &#39;morowalibaca&#39;: 1516, &#39;jugabeasiswa&#39;: 911, &#39;djarumplus&#39;: 588, &#39;mahasiswa&#39;: 1209, &#39;simak&#39;: 2174, &#39;daftar&#39;: 415, &#39;kriteriaselaluupdateinfo&#39;: 1106, &#39;simakbreaking&#39;: 2175, &#39;newsdan&#39;: 1554, &#39;pilihan&#39;: 1807, &#39;daritempocodi&#39;: 433, &#39;kanal&#39;: 946, &#39;telegram&#39;: 2288, &#39;update&#39;: 2453, &#39;klik&#39;: 1065, &#39;bergabung&#39;: 229, &#39;menginstallaplikasi&#39;: 1406, &#39;terlebih&#39;: 2345, &#39;dahulu&#39;: 416, &#39;top&#39;: 2392, &#39;sekjen&#39;: 2091, &#39;pbb&#39;: 1653, &#39;ketemu&#39;: 1035, &#39;presiden&#39;: 1850, &#39;putin&#39;: 1894, &#39;zelensky&#39;: 2553, &#39;suci&#39;: 2221, &#39;sekarwati&#39;: 2087, &#39;pejuang&#39;: 1658, &#39;unit&#39;: 2445, &#39;pasukan&#39;: 1650, &#39;chechnya&#39;: 373, &#39;dipimpin&#39;: 536, &#39;duma&#39;: 603, &#39;rusia&#39;: 2002, &#39;adam&#39;: 9, &#39;delimkhanov&#39;: 444, &#39;berjalan&#39;: 244, &#39;gedung&#39;: 699, &#39;administrasi&#39;: 12, &#39;pabrik&#39;: 1609, &#39;besi&#39;: 299, &#39;baja&#39;: 146, &#39;azovstal&#39;: 135, &#39;konflik&#39;: 1089, &#39;ukrainarusia&#39;: 2438, &#39;pelabuhan&#39;: 1663, &#39;mariupol&#39;: 1244, &#39;ukraina&#39;: 2437, &#39;disebuit&#39;: 555, &#39;perlindungan&#39;: 1761, &#39;milisi&#39;: 1485, &#39;kombatan&#39;: 1074, &#39;reuterschingis&#39;: 1956, &#39;kondarov&#39;: 1084, &#39;urutan&#39;: 2455, &#39;tentang&#39;: 2307, &#39;rentetan&#39;: 1947, &#39;tuduhan&#39;: 2410, &#39;diarahkan&#39;: 476, &#39;beruang&#39;: 288, &#39;menginvasi&#39;: 1407, &#39;antonio&#39;: 81, &#39;guterres&#39;: 728, &#39;mengirim&#39;: 1408, &#39;surat&#39;: 2239, &#39;vladimir&#39;: 2482, &#39;putindan&#39;: 1895, &#39;volodymyr&#39;: 2485, &#39;pertemuan&#39;: 1785, &#39;berakhirnya&#39;: 214, &#39;bulandi&#39;: 345, &#39;temuan&#39;: 2302, &#39;wni&#39;: 2521, &#39;dieksploitasi&#39;: 498, &#39;kasino&#39;: 960, &#39;judi&#39;: 909, &#39;online&#39;: 1594, &#39;kamboja&#39;: 939, &#39;sebelumnya&#39;: 2065, &#39;dirayu&#39;: 545, &#39;sebuah&#39;: 2066, &#39;perusahaan&#39;: 1790, &#39;startup&#39;: 2214, &#39;customer&#39;: 412, &#39;servicedengan&#39;: 2145, &#39;gaji&#39;: 688, &#39;besarpada&#39;: 297, &#39;kasus&#39;: 961, &#39;jumlah&#39;: 925, &#39;muncul&#39;: 1531, &#39;permukaanberikut&#39;: 1764, &#39;selengkapnya&#39;: 2105, &#39;invasi&#39;: 840, &#39;serangan&#39;: 2136, &#39;barusekjen&#39;: 178, &#39;mengakhiri&#39;: 1375, &#39;bulanperang&#39;: 346, &#39;runyam&#39;: 2001, &#39;munculnya&#39;: 1532, &#39;prasangka&#39;: 1847, &#39;diantaranya&#39;: 475, &#39;turkimenuduh&#39;: 2418, &#39;sekutu&#39;: 2097, &#39;nato&#39;: 1547, &#39;menginginkan&#39;: 1405, &#39;perang&#39;: 1740, &#39;melemahkan&#39;: 1282, &#39;turki&#39;: 2417, &#39;berlanjutwakil&#39;: 260, &#39;duta&#39;: 606, &#39;rusiauntuk&#39;: 2004, &#39;dmitry&#39;: 590, &#39;polyansky&#39;: 1827, &#39;pernyataan&#39;: 1766, &#39;sengaja&#39;: 2124, &#39;diumpankan&#39;: 580, &#39;melawan&#39;: 1281, &#39;rusiabaca&#39;: 2003, &#39;sinikantor&#39;: 2181, &#39;jln&#39;: 900, &#39;pejambon&#39;: 1657, &#39;sekartempo&#39;: 2086, &#39;kambojadirektur&#39;: 940, &#39;bhi&#39;: 304, &#39;judha&#39;: 908, &#39;nugraha&#39;: 1575, &#39;menyampaikan&#39;: 1445, &#39;awalnya&#39;: 133, &#39;besarwni&#39;: 298, &#39;korban&#39;: 1098, &#39;berasal&#39;: 219, &#39;macam&#39;: 1202, &#39;utara&#39;: 2458, &#39;phnom&#39;: 1802, &#39;penh&#39;: 1723, &#39;via&#39;: 2473, &#39;singapurasetibanya&#39;: 2178, &#39;onlinediantaranya&#39;: 1595, &#39;diminta&#39;: 521, &#39;memasarkan&#39;: 1298, &#39;investasicrypto&#39;: 841, &#39;currencydengan&#39;: 411, &#39;klaim&#39;: 1062, &#39;intent&#39;: 831, &#39;investment&#39;: 842, &#39;mendasar&#39;: 1362, &#39;berpotensiscammingkata&#39;: 273, &#39;jumpa&#39;: 926, &#39;pers&#39;: 1769, &#39;virtual&#39;: 2479, &#39;baca&#39;: 137, &#39;sinipekerja&#39;: 2182, &#39;pakaian&#39;: 1620, &#39;apd&#39;: 86, &#39;berjagajaga&#39;: 243, &#39;jalan&#39;: 863, &#39;penguncian&#39;: 1721, &#39;mengekang&#39;: 1386, &#39;penyebaran&#39;: 1734, &#39;coronavirus&#39;: 402, &#39;shanghai&#39;: 2160, &#39;penambahan&#39;: 1688, &#39;signifikan&#39;: 2170, &#39;memberlakukan&#39;: 1311, &#39;kebijakan&#39;: 970, &#39;lockdown&#39;: 1193, &#39;reutersaly&#39;: 1955, &#39;songcorona&#39;: 2200, &#39;melonjak&#39;: 1290, &#39;batal&#39;: 180, &#39;longgarkan&#39;: 1197, &#39;lockdownotoritas&#39;: 1194, &#39;melanjutkan&#39;: 1277, &#39;pembatasan&#39;: 1680, &#39;ketat&#39;: 1034, &#39;distrikdistrik&#39;: 563, &#39;berhasil&#39;: 236, &#39;memangkas&#39;: 1295, &#39;penularan&#39;: 1729, &#39;nol&#39;: 1562, &#39;pasalnya&#39;: 1642, &#39;area&#39;: 95, &#39;karantina&#39;: 954, &#39;lagiotoritas&#39;: 1117, &#39;distrik&#39;: 562, &#39;jingan&#39;: 899, &#39;penduduk&#39;: 1697, &#39;hampir&#39;: 747, &#39;mengizinkan&#39;: 1411, &#39;penduduknya&#39;: 1698, &#39;kompleks&#39;: 1081, &#39;perumahan&#39;: 1788, &#39;menghindari&#39;: 1399, &#39;kegiatan&#39;: 984, &#39;berkerumum&#39;: 252, &#39;begitu&#39;: 194, &#39;pula&#39;: 1883, &#39;chongming&#39;: 378, &#39;terletak&#39;: 2346, &#39;terpencilpada&#39;: 2353, &#39;konferensi&#39;: 1088, &#39;reguler&#39;: 1935, &#39;wakil&#39;: 2492, &#39;gubernur&#39;: 723, &#39;meskipun&#39;: 1472, &#39;melaporkan&#39;: 1279, &#39;ribu&#39;: 1967, &#39;semestinya&#39;: 2116, &#39;meninggalkan&#39;: 1423, &#39;merekawakil&#39;: 1464, &#39;zhang&#39;: 2555, &#39;zhitong&#39;: 2556, &#39;supermarket&#39;: 2235, &#39;tutup&#39;: 2423, &#39;beroperasi&#39;: 268, &#39;tangga&#39;: 2266, &#39;chongmingbaca&#39;: 379, &#39;siniselaluupdateinfo&#39;: 2183, &#39;skuter&#39;: 2194, &#39;listrik&#39;: 1187, &#39;yamaha&#39;: 2530, &#39;pakai&#39;: 1619, &#39;baterai&#39;: 182, &#39;swap&#39;: 2243, &#39;alasannya&#39;: 40, &#39;dicky&#39;: 492, &#39;jobpie&#39;: 901, &#39;sugiharto&#39;: 2223, &#39;tempodicky&#39;: 2299, &#39;motor&#39;: 1519, &#39;manufacturing&#39;: 1239, &#39;yimm&#39;: 2538, &#39;uji&#39;: 2434, &#39;coba&#39;: 390, &#39;pasar&#39;: 1645, &#39;terbarunya&#39;: 2319, &#39;dibekali&#39;: 483, &#39;fixed&#39;: 668, &#39;artinya&#39;: 103, &#39;pengisian&#39;: 1718, &#39;baterainya&#39;: 183, &#39;ditukar&#39;: 574, &#39;model&#39;: 1509, &#39;pluginmenurut&#39;: 1820, &#39;director&#39;: 547, &#39;coo&#39;: 399, &#39;dyonisius&#39;: 607, &#39;beti&#39;: 301, &#39;fixedyamahaedipilih&#39;: 669, &#39;mampu&#39;: 1231, &#39;jangkauan&#39;: 874, &#39;swapfixed&#39;: 2244, &#39;battery&#39;: 185, &#39;jarak&#39;: 876, &#39;tempuhnya&#39;: 2301, &#39;jaminan&#39;: 870, &#39;kondisinya&#39;: 1086, &#39;kemampuannya&#39;: 1001, &#39;bergantung&#39;: 231, &#39;global&#39;: 713, &#39;press&#39;: 1852, &#39;conference&#39;: 398, &#39;company&#39;: 395, &#39;proof&#39;: 1869, &#39;concept&#39;: 397, &#39;poc&#39;: 1822, &#39;planner&#39;: 1813, &#39;companyyasushi&#39;: 396, &#39;nomuramengatakan&#39;: 1564, &#39;kombinasi&#39;: 1075, &#39;optimal&#39;: 1598, &#39;tentangjarak&#39;: 2308, &#39;tempuh&#39;: 2300, &#39;metode&#39;: 1477, &#39;yamahaemenurut&#39;: 2532, &#39;engineer&#39;: 626, &#39;project&#39;: 1866, &#39;leader&#39;: 1152, &#39;ymc&#39;: 2539, &#39;takuya&#39;: 2259, &#39;maruo&#39;: 1247, &#39;kecepatan&#39;: 976, &#39;per&#39;: 1737, &#39;jam&#39;: 868, &#39;tipe&#39;: 2385, &#39;pengisiannya&#39;: 1719, &#39;plugin&#39;: 1819, &#39;bukan&#39;: 343, &#39;swapteknologi&#39;: 2245, &#39;memungkinkan&#39;: 1338, &#39;mengeluarkan&#39;: 1387, &#39;maksimum&#39;: 1223, &#39;hp&#39;: 782, &#39;rpm&#39;: 1995, &#39;torsi&#39;: 2394, &#39;nm&#39;: 1561, &#39;rpmyamaha&#39;: 1996, &#39;opsi&#39;: 1597, &#39;daya&#39;: 439, &#39;pengisi&#39;: 1717, &#39;cepat&#39;: 369, &#39;mengisi&#39;: 1410, &#39;output&#39;: 1608, &#39;volt&#39;: 2486, &#39;jamterakhir&#39;: 872, &#39;portabel&#39;: 1831, &#39;kompatibel&#39;: 1079, &#39;stop&#39;: 2217, &#39;kontak&#39;: 1091, &#39;jamsecara&#39;: 871, &#39;disimpan&#39;: 561, &#39;bawah&#39;: 187, &#39;kursi&#39;: 1112, &#39;jok&#39;: 904, &#39;fleksibel&#39;: 670, &#39;tampak&#39;: 2260, &#39;agak&#39;: 14, &#39;yamahae&#39;: 2531, &#39;mengasumsikan&#39;: 1380, &#39;harian&#39;: 752, &#39;kilometerbacaskuter&#39;: 1051, &#39;listrikyamaha&#39;: 1188, &#39;emulai&#39;: 624, &#39;diuji&#39;: 577, &#39;jepangingin&#39;: 894, &#39;berdiskusi&#39;: 227, &#39;redaksi&#39;: 1931, &#39;mengenai&#39;: 1389, &#39;artikel&#39;: 102, &#39;mari&#39;: 1242, &#39;telegramgooto&#39;: 2289, &#39;waspada&#39;: 2500, &#39;kerawanan&#39;: 1020, &#39;jalur&#39;: 865, &#39;wicaksono&#39;: 2512, &#39;kontributor&#39;: 1095, &#39;rini&#39;: 1977, &#39;kustiani&#39;: 1113, &#39;yogya&#39;: 2541, &#39;solo&#39;: 2199, &#39;mall&#39;: 1228, &#39;ambarrukmo&#39;: 57, &#39;padat&#39;: 1613, &#39;merayap&#39;: 1461, &#39;liburan&#39;: 1176, &#39;justru&#39;: 927, &#39;lengang&#39;: 1165, &#39;selasa&#39;: 2102, &#39;desember&#39;: 456, &#39;istimewa&#39;: 846, &#39;diy&#39;: 586, &#39;wisatawan&#39;: 2520, &#39;mewaspadai&#39;: 1479, &#39;rawan&#39;: 1924, &#39;direktur&#39;: 548, &#39;lintas&#39;: 1184, &#39;komisaris&#39;: 1078, &#39;iwan&#39;: 852, &#39;saktiadi&#39;: 2019, &#39;diwapasdaipertama&#39;: 585, &#39;akses&#39;: 34, &#39;magelang&#39;: 1205, &#39;tempel&#39;: 2295, &#39;sleman&#39;: 2195, &#39;ring&#39;: 1974, &#39;road&#39;: 1986, &#39;karakteristik&#39;: 953, &#39;turn&#39;: 2419, &#39;penggalan&#39;: 1709, &#39;cukup&#39;: 410, &#39;lebar&#39;: 1153, &#39;devider&#39;: 462, &#39;beton&#39;: 303, &#39;menurut&#39;: 1439, &#39;lintasnya&#39;: 1186, &#39;tingginya&#39;: 2383, &#39;angka&#39;: 72, &#39;kecelakaankedua&#39;: 975, &#39;timur&#39;: 2379, &#39;prambanan&#39;: 1844, &#39;simpang&#39;: 2177, &#39;proliman&#39;: 1867, &#39;maguwoharjo&#39;: 1208, &#39;mirip&#39;: 1496, &#39;menghubungkan&#39;: 1400, &#39;purworejo&#39;: 1890, &#39;klaten&#39;: 1064, &#39;temon&#39;: 2293, &#39;wates&#39;: 2501, &#39;kulon&#39;: 1109, &#39;progo&#39;: 1864, &#39;gamping&#39;: 694, &#39;jalurnya&#39;: 867, &#39;tumpah&#39;: 2413, &#39;diakeempat&#39;: 471, &#39;wonosari&#39;: 2522, &#39;playen&#39;: 1817, &#39;patuk&#39;: 1651, &#39;piyungan&#39;: 1812, &#39;ditambah&#39;: 565, &#39;berkelok&#39;: 250, &#39;naikturun&#39;: 1541, &#39;diaselain&#39;: 478, &#39;tadi&#39;: 2250, &#39;menambahkan&#39;: 1340, &#39;alternatif&#39;: 52, &#39;misalkan&#39;: 1497, &#39;sebaliknya&#39;: 2061, &#39;melewati&#39;: 1285, &#39;turi&#39;: 2416, &#39;pakem&#39;: 1622, &#39;ngemplak&#39;: 1556, &#39;kalasan&#39;: 933, &#39;peemukiman&#39;: 1656, &#39;minim&#39;: 1488, &#39;penerangan&#39;: 1700, &#39;malam&#39;: 1224, &#39;katanyalalu&#39;: 964, &#39;sedayu&#39;: 2070, &#39;ditempuh&#39;: 570, &#39;lewat&#39;: 1172, &#39;pajangan&#39;: 1618, &#39;pandak&#39;: 1632, &#39;bantul&#39;: 170, &#39;kerawanannya&#39;: 1021, &#39;jalankepala&#39;: 864, &#39;humas&#39;: 786, &#39;yuliyanto&#39;: 2550, &#39;mendirikan&#39;: 1365, &#39;pos&#39;: 1833, &#39;pengaman&#39;: 1706, &#39;pelayanan&#39;: 1670, &#39;operasi&#39;: 1596, &#39;ketupat&#39;: 1044, &#39;personel&#39;: 1778, &#39;terlibat&#39;: 2347, &#39;ujarnya&#39;: 2433, &#39;rinciannya&#39;: 1972, &#39;instansi&#39;: 829, &#39;lainnyakepala&#39;: 1124, &#39;inspektur&#39;: 827, &#39;jenderal&#39;: 891, &#39;asep&#39;: 111, &#39;suhendar&#39;: 2224, &#39;pengamanan&#39;: 1707, &#39;ldul&#39;: 1151, &#39;berfokus&#39;: 228, &#39;sarana&#39;: 2042, &#39;vital&#39;: 2481, &#39;ibadah&#39;: 790, &#39;destinasi&#39;: 457, &#39;wisata&#39;: 2519, &#39;perbelanjaan&#39;: 1746, &#39;terminal&#39;: 2350, &#39;lainnyaasep&#39;: 1123, &#39;mengingatkan&#39;: 1404, &#39;libur&#39;: 1175, &#39;covidbaca&#39;: 404, &#39;jugayogyakarta&#39;: 917, &#39;bakal&#39;: 147, &#39;macet&#39;: 1203, &#39;mencegahnyaselaluupdateinfo&#39;: 1353, &#39;kliktempoco&#39;: 1066, &#39;updateuntuk&#39;: 2454, &#39;lebihdulu&#39;: 1157, &#39;terpopuler&#39;: 2355, &#39;rincian&#39;: 1971, &#39;aset&#39;: 112, &#39;bpk&#39;: 332, &#39;kantor&#39;: 950, &#39;ditutup&#39;: 576, &#39;isma&#39;: 844, &#39;yatun&#39;: 2536, &#39;dok&#39;: 591, &#39;kekayaanisma&#39;: 989, &#39;danrencana&#39;: 425, &#39;penutupan&#39;: 1731, &#39;persero&#39;: 1775, &#39;tbkdi&#39;: 2275, &#39;tanah&#39;: 2264, &#39;airkemudian&#39;: 23, &#39;sri&#39;: 2210, &#39;sultan&#39;: 2230, &#39;hamengkubuwono&#39;: 743, &#39;penetapan&#39;: 1702, &#39;tersangka&#39;: 2357, &#39;dugaan&#39;: 602, &#39;korupsi&#39;: 1100, &#39;ekspor&#39;: 616, &#39;cpo&#39;: 405, &#39;turunannya&#39;: 2421, &#39;berujung&#39;: 289, &#39;kelangkaan&#39;: 993, &#39;minyak&#39;: 1494, &#39;goreng&#39;: 715, &#39;airselain&#39;: 24, &#39;satuan&#39;: 2046, &#39;tugas&#39;: 2411, &#39;penanganan&#39;: 1691, &#39;syarat&#39;: 2249, &#39;aturan&#39;: 130, &#39;terbaru&#39;: 2318, &#39;calon&#39;: 358, &#39;pelaku&#39;: 1665, &#39;ppdn&#39;: 1841, &#39;prakiraan&#39;: 1843, &#39;cuaca&#39;: 406, &#39;antisipasi&#39;: 80, &#39;petir&#39;: 1798, &#39;maria&#39;: 1243, &#39;fransisca&#39;: 679, &#39;lahur&#39;: 1120, &#39;awan&#39;: 134, &#39;mendungcuaca&#39;: 1367, &#39;buruk&#39;: 352, &#39;tempoaditia&#39;: 2297, &#39;noviansyah&#39;: 1572, &#39;memprediksi&#39;: 1333, &#39;kotaakan&#39;: 1102, &#39;disertai&#39;: 558, &#39;adalahbengkulu&#39;: 8, &#39;surabaya&#39;: 2238, &#39;pontianakmataram&#39;: 1829, &#39;mamujusedangkan&#39;: 1232, &#39;prediksi&#39;: 1849, &#39;berlaku&#39;: 257, &#39;tanjung&#39;: 2269, &#39;pinang&#39;: 1809, &#39;medan&#39;: 1266, &#39;ringan&#39;: 1975, &#39;diperkirakan&#39;: 533, &#39;luas&#39;: 1201, &#39;banda&#39;: 156, &#39;aceh&#39;: 5, &#39;denpasar&#39;: 449, &#39;gorontalo&#39;: 716, &#39;jambi&#39;: 869, &#39;bandung&#39;: 158, &#39;banjarmasin&#39;: 162, &#39;palangkaraya&#39;: 1626, &#39;samarinda&#39;: 2026, &#39;pangkal&#39;: 1634, &#39;bandar&#39;: 157, &#39;ambon&#39;: 58, &#39;ternate&#39;: 2351, &#39;manokwari&#39;: 1237, &#39;pekanbaru&#39;: 1660, &#39;padang&#39;: 1612, &#39;palembangmenurut&#39;: 1627, &#39;suhu&#39;: 2225, &#39;udara&#39;: 2428, &#39;berkisar&#39;: 253, &#39;derajatcelsius&#39;: 453, &#39;suhuyang&#39;: 2226, &#39;terendah&#39;: 2330, &#39;terukur&#39;: 2366, &#39;tertinggi&#39;: 2364, &#39;banjarmasincuaca&#39;: 163, &#39;dipengaruhi&#39;: 529, &#39;bibit&#39;: 307, &#39;siklon&#39;: 2172, &#39;tropis&#39;: 2404, &#39;terpantau&#39;: 2352, &#39;samudera&#39;: 2032, &#39;hindia&#39;: 774, &#39;sebelah&#39;: 2063, &#39;banten&#39;: 168, &#39;pertamamenginduksi&#39;: 1782, &#39;angin&#39;: 71, &#39;low&#39;: 1199, &#39;level&#39;: 1169, &#39;jet&#39;: 897, &#39;knot&#39;: 1071, &#39;memanjang&#39;: 1296, &#39;samudra&#39;: 2033, &#39;baratbengkulu&#39;: 174, &#39;teluk&#39;: 2291, &#39;carpentaria&#39;: 361, &#39;yangmembentuk&#39;: 2534, &#39;konvergensi&#39;: 1096, &#39;australia&#39;: 131, &#39;sirkulasi&#39;: 2185, &#39;siklonik&#39;: 2173, &#39;malukudaerah&#39;: 1230, &#39;pasifik&#39;: 1646, &#39;halmahera&#39;: 739, &#39;potensi&#39;: 1838, &#39;pertumbuhan&#39;: 1786, &#39;ketinggian&#39;: 1042, &#39;gelombang&#39;: 701, &#39;sekitarnyabaca&#39;: 2090, &#39;jugamusim&#39;: 916, &#39;alami&#39;: 39, &#39;perpanjangan&#39;: 1768, &#39;lebihselaluupdateinfo&#39;: 1158, &#39;jadwal&#39;: 855, &#39;hadirkan&#39;: 732, &#39;reutersmike&#39;: 1958, &#39;hewitt&#39;: 765, &#39;ahad&#39;: 21, &#39;menampilkan&#39;: 1341, &#39;rangkaian&#39;: 1917, &#39;pertandingan&#39;: 1784, &#39;prancis&#39;: 1845, &#39;jerman&#39;: 895, &#39;copa&#39;: 400, &#39;del&#39;: 442, &#39;rey&#39;: 1962, &#39;gelar&#39;: 700, &#39;dipertaruhkanliga&#39;: 535, &#39;brentford&#39;: 333, &#39;vs&#39;: 2487, &#39;tottenham&#39;: 2396, &#39;hotspurs&#39;: 781, &#39;live&#39;: 1189, &#39;sctv&#39;: 2055, &#39;arsenal&#39;: 100, &#39;manchester&#39;: 1235, &#39;city&#39;: 388, &#39;watford&#39;: 2502, &#39;leicester&#39;: 1161, &#39;aston&#39;: 120, &#39;villabelum&#39;: 2477, &#39;penentuan&#39;: 1699, &#39;nilai&#39;: 1560, &#39;laga&#39;: 1115, &#39;liverpoolm&#39;: 1192, &#39;bermain&#39;: 266, &#39;everton&#39;: 636, &#39;malamdi&#39;: 1225, &#39;naun&#39;: 1548, &#39;menarik&#39;: 1346, &#39;disiarkan&#39;: 560, &#39;mnctv&#39;: 1501, &#39;inter&#39;: 832, &#39;milan&#39;: 1484, &#39;as&#39;: 107, &#39;roma&#39;: 1990, &#39;tersaji&#39;: 2356, &#39;teratas&#39;: 2313, &#39;bayern&#39;: 190, &#39;munchen&#39;: 1530, &#39;borussia&#39;: 329, &#39;dortmund&#39;: 595, &#39;saling&#39;: 2023, &#39;berhadapan&#39;: 234, &#39;tersisa&#39;: 2363, &#39;kini&#39;: 1057, &#39;sembilan&#39;: 2113, &#39;bila&#39;: 313, &#39;memenangi&#39;: 1318, &#39;inidi&#39;: 820, &#39;psg&#39;: 1873, &#39;membutuhkan&#39;: 1317, &#39;seri&#39;: 2139, &#39;lenspenentuan&#39;: 1167, &#39;piala&#39;: 1803, &#39;raja&#39;: 1910, &#39;spanyol&#39;: 2205, &#39;real&#39;: 1928, &#39;betis&#39;: 302, &#39;valencia&#39;: 2463, &#39;bertemu&#39;: 284, &#39;finaljadwal&#39;: 662, &#39;selengkapnyasabtu&#39;: 2106, &#39;inggrispekan&#39;: 815, &#39;mola&#39;: 1510, &#39;villa&#39;: 2476, &#39;norwich&#39;: 1570, &#39;newcastle&#39;: 1553, &#39;sctvliga&#39;: 2056, &#39;italiapekan&#39;: 849, &#39;bein&#39;: 196, &#39;sports&#39;: 2207, &#39;venezia&#39;: 2466, &#39;atalanta&#39;: 122, &#39;torino&#39;: 2393, &#39;spezia&#39;: 2206, &#39;mnctvliga&#39;: 1502, &#39;eintracht&#39;: 612, &#39;frankfurt&#39;: 678, &#39;hoffenheim&#39;: 779, &#39;greuther&#39;: 720, &#39;furth&#39;: 682, &#39;bayer&#39;: 189, &#39;leverkusen&#39;: 1171, &#39;rb&#39;: 1926, &#39;leipzig&#39;: 1162, &#39;union&#39;: 2444, &#39;berlin&#39;: 265, &#39;freiburg&#39;: 680, &#39;monchengladbach&#39;: 1512, &#39;koln&#39;: 1073, &#39;arminia&#39;: 99, &#39;bielefeld&#39;: 311, &#39;tvoneahad&#39;: 2425, &#39;hellas&#39;: 760, &#39;verona&#39;: 2468, &#39;sampdorialiga&#39;: 2030, &#39;prancispekan&#39;: 1846, &#39;lens&#39;: 1166, &#39;rcticopa&#39;: 1927, &#39;reyfinal&#39;: 1963, &#39;sportselanjutnya&#39;: 2208, &#39;berikutnya&#39;: 239, &#39;langsung&#39;: 1140, &#39;aplikasi&#39;: 88, &#39;siswa&#39;: 2189, &#39;mau&#39;: 1257, &#39;ujian&#39;: 2436, &#39;minta&#39;: 1492, &#39;ajari&#39;: 26, &#39;dosen&#39;: 596, &#39;profesor&#39;: 1863, &#39;mengajar&#39;: 1373, &#39;shutterstockcom&#39;: 2163, &#39;startupdi&#39;: 2215, &#39;apabilamemiliki&#39;: 83, &#39;kesulitan&#39;: 1033, &#39;belajar&#39;: 200, &#39;terutama&#39;: 2368, &#39;menempuh&#39;: 1368, &#39;dengankalangan&#39;: 448, &#39;aplikasibernamaujiajacomitu&#39;: 89, &#39;sambilan&#39;: 2027, &#39;bergelar&#39;: 233, &#39;guru&#39;: 727, &#39;les&#39;: 1168, &#39;ceoujiajacom&#39;: 368, &#39;zabina&#39;: 2551, &#39;asfahanizabinasaat&#39;: 113, &#39;masih&#39;: 1251, &#39;semester&#39;: 2115, &#39;fakultas&#39;: 642, &#39;teknik&#39;: 2285, &#39;universitas&#39;: 2447, &#39;gadjah&#39;: 685, &#39;mada&#39;: 1204, &#39;ugm&#39;: 2429, &#39;diakses&#39;: 472, &#39;playstore&#39;: 1818, &#39;website&#39;: 2506, &#39;fiturtryout&#39;: 667, &#39;privatcara&#39;: 1856, &#39;kerjanya&#39;: 1025, &#39;diyakinizabina&#39;: 587, &#39;pengajar&#39;: 1704, &#39;mendaftar&#39;: 1357, &#39;demikian&#39;: 446, &#39;soalsoal&#39;: 2197, &#39;tryout&#39;: 2406, &#39;privat&#39;: 1855, &#39;kebutuhannya&#39;: 972, &#39;platformbisa&#39;: 1816, &#39;menjembatani&#39;: 1433, &#39;memaksimalkan&#39;: 1293, &#39;repot&#39;: 1949, &#39;tatap&#39;: 2273, &#39;muka&#39;: 1525, &#39;beda&#39;: 193, &#39;darikebanyakan&#39;: 432, &#39;sejenis&#39;: 2082, &#39;diujiajacompengajar&#39;: 578, &#39;membatasi&#39;: 1302, &#39;latar&#39;: 1145, &#39;belakangkalau&#39;: 203, &#39;kan&#39;: 945, &#39;disediakan&#39;: 557, &#39;buatannya&#39;: 338, &#39;mahasiswameski&#39;: 1210, &#39;begituzabina&#39;: 195, &#39;menmbahkandi&#39;: 1434, &#39;ujiajacommenerapkan&#39;: 2435, &#39;levelfee&#39;: 1170, &#39;bayarannya&#39;: 188, &#39;diadari&#39;: 470, &#39;pengelola&#39;: 1708, &#39;membayar&#39;: 1304, &#39;terbangnyazabina&#39;: 2317, &#39;layaknya&#39;: 1149, &#39;ojek&#39;: 1589, &#39;mengatur&#39;: 1383, &#39;pelangganmenggunakan&#39;: 1666, &#39;antarjemput&#39;: 78, &#39;pesanannya&#39;: 1791, &#39;diujiajacomsiswa&#39;: 579, &#39;pengguna&#39;: 1711, &#39;pilihannyabaca&#39;: 1808, &#39;jugadi&#39;: 913, &#39;sekolah&#39;: 2092, &#39;vokasi&#39;: 2484, &#39;dirjen&#39;: 551, &#39;pendaftar&#39;: 1694, &#39;buka&#39;: 342, &#39;dselaluupdateinfo&#39;: 599, &#39;zendaya&#39;: 2554, &#39;absen&#39;: 2, &#39;met&#39;: 1473, &#39;gala&#39;: 689, &#39;berturutturut&#39;: 287, &#39;mila&#39;: 1483, &#39;novita&#39;: 1573, &#39;berpose&#39;: 271, &#39;menghadiri&#39;: 1396, &#39;acara&#39;: 4, &#39;oscar&#39;: 1606, &#39;hollywood&#39;: 780, &#39;los&#39;: 1198, &#39;angeles&#39;: 69, &#39;maret&#39;: 1241, &#39;minimalis&#39;: 1489, &#39;rambutnya&#39;: 1915, &#39;menariknya&#39;: 1347, &#39;detail&#39;: 458, &#39;ansambelnya&#39;: 74, &#39;ramping&#39;: 1916, &#39;glamor&#39;: 712, &#39;reuterseric&#39;: 1957, &#39;gaillard&#39;: 687, &#39;metgala&#39;: 1476, &#39;aktris&#39;: 37, &#39;euphoria&#39;: 631, &#39;sekali&#39;: 2084, &#39;melewatkan&#39;: 1286, &#39;pesta&#39;: 1795, &#39;fashion&#39;: 645, &#39;bekerjasaya&#39;: 199, &#39;benci&#39;: 208, &#39;mengecewakan&#39;: 1385, &#39;penggemar&#39;: 1710, &#39;wawancara&#39;: 2504, &#39;extra&#39;: 638, &#39;gadismu&#39;: 684, &#39;film&#39;: 660, &#39;berharap&#39;: 235, &#39;orangdia&#39;: 1601, &#39;hadir&#39;: 731, &#39;entah&#39;: 627, &#39;kapanini&#39;: 951, &#39;menandai&#39;: 1342, &#39;amal&#39;: 53, &#39;mengungkapkan&#39;: 1417, &#39;mode&#39;: 1508, &#39;jadwalnya&#39;: 856, &#39;bentrok&#39;: 211, &#39;produksi&#39;: 1859, &#39;hbo&#39;: 758, &#39;hitsnya&#39;: 777, &#39;sayangnya&#39;: 2052, &#39;euphoriamet&#39;: 632, &#39;mei&#39;: 1269, &#39;metropolitan&#39;: 1478, &#39;museum&#39;: 1534, &#39;arts&#39;: 104, &#39;tanggal&#39;: 2267, &#39;diadakan&#39;: 469, &#39;senin&#39;: 2125, &#39;septembertema&#39;: 2134, &#39;in&#39;: 802, &#39;america&#39;: 59, &#39;anthology&#39;: 79, &#39;dress&#39;: 598, &#39;code&#39;: 392, &#39;berlapis&#39;: 261, &#39;dasi&#39;: 436, &#39;putih&#39;: 1893, &#39;terinspirasi&#39;: 2338, &#39;periode&#39;: 1756, &#39;tamu&#39;: 2263, &#39;mewujudkan&#39;: 1480, &#39;kejayaan&#39;: 986, &#39;gilded&#39;: 709, &#39;age&#39;: 17, &#39;vogue&#39;: 2483, &#39;pasangan&#39;: 1643, &#39;blake&#39;: 320, &#39;lively&#39;: 1190, &#39;ryan&#39;: 2009, &#39;reynolds&#39;: 1964, &#39;cochair&#39;: 391, &#39;pemenang&#39;: 1681, &#39;regina&#39;: 1933, &#39;king&#39;: 1056, &#39;superstar&#39;: 2236, &#39;broadway&#39;: 335, &#39;linmanuel&#39;: 1183, &#39;mirandaera&#39;: 1495, &#39;industrialisasi&#39;: 810, &#39;melahirkan&#39;: 1270, &#39;orangorang&#39;: 1602, &#39;john&#39;: 902, &#39;rockefeller&#39;: 1988, &#39;jp&#39;: 906, &#39;morgan&#39;: 1514, &#39;cornelius&#39;: 401, &#39;vanderbilt&#39;: 2465, &#39;kemakmuran&#39;: 1000, &#39;budaya&#39;: 340, &#39;lampu&#39;: 1134, &#39;dipatenkan&#39;: 528, &#39;telepon&#39;: 2290, &#39;ditemukan&#39;: 571, &#39;upah&#39;: 2452, &#39;meroket&#39;: 1468, &#39;pencakar&#39;: 1692, &#39;langit&#39;: 1138, &#39;kekayaanmelayani&#39;: 990, &#39;lexicon&#39;: 1174, &#39;penghormatan&#39;: 1715, &#39;sejarah&#39;: 2080, &#39;pameran&#39;: 1631, &#39;dipajang&#39;: 527, &#39;ruang&#39;: 1998, &#39;bertingkatmet&#39;: 285, &#39;dibatalkan&#39;: 481, &#39;pandemi&#39;: 1633, &#39;ia&#39;: 789, &#39;menghiasi&#39;: 1398, &#39;karpet&#39;: 957, &#39;gaun&#39;: 697, &#39;cinderella&#39;: 385, &#39;the&#39;: 2373, &#39;greatest&#39;: 719, &#39;showman&#39;: 2161, &#39;bertabur&#39;: 282, &#39;bintang&#39;: 314, &#39;tommy&#39;: 2390, &#39;hilfiger&#39;: 770, &#39;korset&#39;: 1099, &#39;hitam&#39;: 776, &#39;biru&#39;: 315, &#39;lengan&#39;: 1164, &#39;pouffy&#39;: 1839, &#39;rok&#39;: 1989, &#39;berkat&#39;: 247, &#39;bantuan&#39;: 169, &#39;perinya&#39;: 1755, &#39;stylist&#39;: 2219, &#39;law&#39;: 1148, &#39;roach&#39;: 1985, &#39;lambaian&#39;: 1132, &#39;tongkat&#39;: 2391, &#39;sihirnya&#39;: 2171, &#39;pakaiannya&#39;: 1621, &#39;menyalabaca&#39;: 1442, &#39;jugazendaya&#39;: 918, &#39;chic&#39;: 375, &#39;bergaya&#39;: 232, &#39;monokrom&#39;: 1513, &#39;setelan&#39;: 2152, &#39;abuabuselaluupdateinfo&#39;: 3, &#39;simakbreakingnewsdan&#39;: 2176, &#39;perlumenginstallaplikasi&#39;: 1763, &#39;ramalan&#39;: 1914, &#39;diguyur&#39;: 501, &#39;yudha&#39;: 2548, &#39;saputra&#39;: 2041, &#39;ahmad&#39;: 22, &#39;faiz&#39;: 639, &#39;ibnu&#39;: 791, &#39;sani&#39;: 2039, &#39;takjil&#39;: 2257, &#39;gratis&#39;: 718, &#39;cempaka&#39;: 365, &#39;xxi&#39;: 2526, &#39;mengguyur&#39;: 1394, &#39;menghalangi&#39;: 1397, &#39;mengantre&#39;: 1379, &#39;fathurrahman&#39;: 647, &#39;siang&#39;: 2164, &#39;cerah&#39;: 370, &#39;berawan&#39;: 221, &#39;inibmkg&#39;: 818, &#39;memprakirakan&#39;: 1332, &#39;kepulauan&#39;: 1015, &#39;seribu&#39;: 2140, &#39;kelapa&#39;: 994, &#39;gading&#39;: 683, &#39;penjaringan&#39;: 1726, &#39;diramalkan&#39;: 541, &#39;soreuntuk&#39;: 2202, &#39;jakut&#39;: 862, &#39;kep&#39;: 1012, &#39;didominasi&#39;: 496, &#39;pagimalam&#39;: 1616, &#39;siangsore&#39;: 2165, &#39;cuit&#39;: 409, &#39;twitter&#39;: 2426, &#39;penjarian&#39;: 1725, &#39;setelahnya&#39;: 2151, &#39;ratarata&#39;: 1922, &#39;derajat&#39;: 452, &#39;celsius&#39;: 364, &#39;kelembaban&#39;: 996, &#39;diprakirakan&#39;: 537, &#39;kmjam&#39;: 1070, &#39;kecamatan&#39;: 973, &#39;sawah&#39;: 2050, &#39;diprediksi&#39;: 538, &#39;wibuntuk&#39;: 2510, &#39;jakpus&#39;: 859, &#39;jakbar&#39;: 858, &#39;jaksel&#39;: 860, &#39;jaktim&#39;: 861, &#39;pagisore&#39;: 1617, &#39;ringanhujan&#39;: 1976, &#39;bmkgselain&#39;: 323, &#39;abang&#39;: 0, &#39;cengkareng&#39;: 366, &#39;kalideres&#39;: 936, &#39;kebon&#39;: 971, &#39;jeruk&#39;: 896, &#39;kembangan&#39;: 1006, &#39;palmerah&#39;: 1630, &#39;selebihnya&#39;: 2104, &#39;wibwilayah&#39;: 2511, &#39;wilayahnya&#39;: 2516, &#39;berlanjut&#39;: 259, &#39;kecuali&#39;: 978, &#39;setia&#39;: 2154, &#39;budi&#39;: 341, &#39;wibsementara&#39;: 2509, &#39;hukan&#39;: 785, &#39;cakung&#39;: 357, &#39;matraman&#39;: 1256, &#39;pulogadung&#39;: 1887, &#39;melanda&#39;: 1275, &#39;cipayung&#39;: 386, &#39;ciracas&#39;: 387, &#39;kramat&#39;: 1104, &#39;jati&#39;: 879, &#39;makasar&#39;: 1221, &#39;rebo&#39;: 1929, &#39;diramal&#39;: 540, &#39;wibbaca&#39;: 2508, &#39;jugamobil&#39;: 915, &#39;terperosok&#39;: 2354, &#39;sungai&#39;: 2233, &#39;depok&#39;: 451, &#39;petugas&#39;: 1801, &#39;tergenang&#39;: 2333, &#39;banjir&#39;: 164, &#39;halal&#39;: 735, &#39;bihalal&#39;: 312, &#39;terbit&#39;: 2321, &#39;makanmakan&#39;: 1219, &#39;dewi&#39;: 464, &#39;nurita&#39;: 1578, &#39;syailendra&#39;: 2248, &#39;persada&#39;: 1770, &#39;halalbihalal&#39;: 736, &#39;kerabat&#39;: 1017, &#39;rawa&#39;: 1923, &#39;bambu&#39;: 154, &#39;bekasi&#39;: 197, &#39;antaradhemas&#39;: 77, &#39;reviyanto&#39;: 1961, &#39;tito&#39;: 2388, &#39;karnavian&#39;: 956, &#39;menerbitkan&#39;: 1370, &#39;edaran&#39;: 608, &#39;sj&#39;: 2190, &#39;pelaksanaan&#39;: 1664, &#39;hijriah&#39;: 769, &#39;diteken&#39;: 568, &#39;ditujukan&#39;: 573, &#39;bupati&#39;: 350, &#39;wali&#39;: 2494, &#39;indonesiadalam&#39;: 808, &#39;se&#39;: 2057, &#39;disesuaikan&#39;: 559, &#39;ppkm&#39;: 1842, &#39;kapasitas&#39;: 952, &#39;kategori&#39;: 965, &#39;makananminuman&#39;: 1218, &#39;kemasan&#39;: 1003, &#39;dibawa&#39;: 482, &#39;diperbolehkan&#39;: 531, &#39;disajikan&#39;: 552, &#39;prasmanan&#39;: 1848, &#39;salinan&#39;: 2022, &#39;tersebutmeski&#39;: 2360, &#39;dibolehkan&#39;: 490, &#39;mendagri&#39;: 1358, &#39;mengimbau&#39;: 1403, &#39;protokol&#39;: 1871, &#39;sekurangkurangnya&#39;: 2096, &#39;memakai&#39;: 1291, &#39;masker&#39;: 1253, &#39;mencuci&#39;: 1355, &#39;tangan&#39;: 2265, &#39;berkala&#39;: 246, &#39;dihindari&#39;: 504, &#39;ramai&#39;: 1913, &#39;peserta&#39;: 1794, &#39;membuka&#39;: 1315, &#39;soal&#39;: 2196}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vocabulary:  {&#39;produktivitas&#39;: 208, &#39;kerja&#39;: 127, &#39;pelatihan&#39;: 185, &#39;pengembangan&#39;: 191, &#39;pegawai&#39;: 184, &#39;dinas&#39;: 59, &#39;kelautan&#39;: 125, &#39;perikanan&#39;: 197, &#39;bangkalan&#39;: 31, &#39;pengaruh&#39;: 190, &#39;faktorfaktor&#39;: 82, &#39;penelitian&#39;: 188, &#39;meningkat&#39;: 153, &#39;instansi&#39;: 112, &#39;hubungan&#39;: 100, &#39;metode&#39;: 158, &#39;seleksi&#39;: 234, &#39;variabel&#39;: 280, &#39;responden&#39;: 222, &#39;dianalisis&#39;: 54, &#39;sampling&#39;: 227, &#39;analisis&#39;: 15, &#39;jabatan&#39;: 120, &#39;motivasi&#39;: 159, &#39;peserta&#39;: 199, &#39;kabupaten&#39;: 123, &#39;terbukti&#39;: 255, &#39;nilai&#39;: 168, &#39;satiyah&#39;: 228, &#39;dibawah&#39;: 55, &#39;bimbingan&#39;: 38, &#39;drahjsanugrahini&#39;: 65, &#39;irawatimm&#39;: 117, &#39;helmi&#39;: 96, &#39;buyung&#39;: 39, &#39;auliasstsemmt&#39;: 30, &#39;upaya&#39;: 274, &#39;meningkatkan&#39;: 154, &#39;mudah&#39;: 162, &#39;salah&#39;: 224, &#39;usaha&#39;: 275, &#39;menerapkan&#39;: 150, &#39;program&#39;: 210, &#39;sumber&#39;: 252, &#39;daya&#39;: 48, &#39;manusia&#39;: 144, &#39;sdm&#39;: 230, &#39;dilaksanakan&#39;: 58, &#39;tercapai&#39;: 256, &#39;kemampuan&#39;: 126, &#39;efektif&#39;: 67, &#39;efisien&#39;: 72, &#39;pengembnagan&#39;: 192, &#39;diharapkan&#39;: 57, &#39;menyesuaikan&#39;: 155, &#39;kebutuhankebutuhan&#39;: 124, &#39;sikap&#39;: 237, &#39;tingkah&#39;: 266, &#39;laku&#39;: 139, &#39;keterampilan&#39;: 129, &#39;pengetahuan&#39;: 193, &#39;sesuai&#39;: 236, &#39;tuntutan&#39;: 272, &#39;perubahan&#39;: 198, &#39;mendukung&#39;: 149, &#39;terciptanya&#39;: 257, &#39;suasana&#39;: 250, &#39;kondusif&#39;: 135, &#39;produktivitasi&#39;: 209, &#39;tujuan&#39;: 271, &#39;mengukur&#39;: 152, &#39;menganalisa&#39;: 151, &#39;peneliti&#39;: 187, &#39;pendekatan&#39;: 186, &#39;observasional&#39;: 172, &#39;analitik&#39;: 16, &#39;pengamatan&#39;: 189, &#39;langsung&#39;: 140, &#39;penyebaran&#39;: 195, &#39;kuisioner&#39;: 136, &#39;populasi&#39;: 200, &#39;sampel&#39;: 225, &#39;diolah&#39;: 60, &#39;spss&#39;: 245, &#39;versi&#39;: 283, &#39;statistik&#39;: 248, &#39;non&#39;: 170, &#39;probality&#39;: 205, &#39;simple&#39;: 238, &#39;random&#39;: 217, &#39;kesimpulan&#39;: 128, &#39;perbedaan&#39;: 196, &#39;individu&#39;: 109, &#39;partisipasi&#39;: 183, &#39;aktif&#39;: 12, &#39;instruktur&#39;: 115, &#39;simultan&#39;: 239, &#39;koefisien&#39;: 134, &#39;determinasi&#39;: 51, &#39;berganda&#39;: 35, &#39;square&#39;: 246, &#39;fhitung&#39;: 83, &#39;ftabel&#39;: 90, &#39;faktor&#39;: 81, &#39;berpengaruh&#39;: 36, &#39;parsial&#39;: 179, &#39;pengujian&#39;: 194, &#39;hipotesis&#39;: 98, &#39;thitung&#39;: 265, &#39;dominan&#39;: 63, &#39;kunci&#39;: 137, &#39;the&#39;: 262, &#39;of&#39;: 175, &#39;and&#39;: 21, &#39;to&#39;: 267, &#39;productivity&#39;: 207, &#39;is&#39;: 118, &#39;training&#39;: 269, &#39;development&#39;: 53, &#39;employees&#39;: 75, &#39;with&#39;: 289, &#39;in&#39;: 105, &#39;agency&#39;: 11, &#39;marine&#39;: 145, &#39;fisheries&#39;: 84, &#39;that&#39;: 261, &#39;working&#39;: 291, &#39;study&#39;: 249, &#39;increase&#39;: 106, &#39;be&#39;: 32, &#39;by&#39;: 40, &#39;work&#39;: 290, &#39;this&#39;: 264, &#39;factors&#39;: 80, &#39;relationship&#39;: 218, &#39;analysis&#39;: 17, &#39;selection&#39;: 233, &#39;on&#39;: 176, &#39;an&#39;: 14, &#39;effort&#39;: 71, &#39;not&#39;: 171, &#39;can&#39;: 41, &#39;which&#39;: 287, &#39;much&#39;: 161, &#39;influence&#39;: 111, &#39;department&#39;: 50, &#39;namely&#39;: 164, &#39;respondents&#39;: 223, &#39;methods&#39;: 157, &#39;motivation&#39;: 160, &#39;participants&#39;: 181, &#39;effect&#39;: 68, &#39;as&#39;: 26, &#39;abstract&#39;: 3, &#39;labor&#39;: 138, &#39;easy&#39;: 66, &#39;because&#39;: 33, &#39;its&#39;: 119, &#39;one&#39;: 177, &#39;implement&#39;: 103, &#39;programs&#39;: 211, &#39;human&#39;: 101, &#39;resource&#39;: 221, &#39;need&#39;: 165, &#39;implemented&#39;: 104, &#39;so&#39;: 242, &#39;high&#39;: 97, &#39;achieved&#39;: 7, &#39;increasing&#39;: 107, &#39;ability&#39;: 0, &#39;effectively&#39;: 69, &#39;efficiently&#39;: 70, &#39;also&#39;: 13, &#39;expected&#39;: 78, &#39;able&#39;: 1, &#39;adjust&#39;: 9, &#39;new&#39;: 167, &#39;needs&#39;: 166, &#39;attitude&#39;: 29, &#39;behavior&#39;: 34, &#39;skills&#39;: 241, &#39;knowledge&#39;: 132, &#39;accordance&#39;: 6, &#39;changing&#39;: 42, &#39;demands&#39;: 49, &#39;good&#39;: 92, &#39;support&#39;: 253, &#39;creation&#39;: 47, &#39;conducive&#39;: 45, &#39;atmosphere&#39;: 28, &#39;institutions&#39;: 113, &#39;self&#39;: 235, &#39;will&#39;: 288, &#39;purpose&#39;: 215, &#39;know&#39;: 131, &#39;how&#39;: 99, &#39;against&#39;: 10, &#39;employment&#39;: 76, &#39;measure&#39;: 148, &#39;analyze&#39;: 19, &#39;between&#39;: 37, &#39;two&#39;: 273, &#39;variables&#39;: 282, &#39;above&#39;: 2, &#39;researchers&#39;: 220, &#39;used&#39;: 276, &#39;observational&#39;: 173, &#39;analytic&#39;: 18, &#39;approach&#39;: 22, &#39;make&#39;: 143, &#39;observations&#39;: 174, &#39;directly&#39;: 61, &#39;spread&#39;: 244, &#39;questionnaire&#39;: 216, &#39;for&#39;: 85, &#39;population&#39;: 201, &#39;sample&#39;: 226, &#39;processed&#39;: 206, &#39;version&#39;: 284, &#39;analyzed&#39;: 20, &#39;using&#39;: 277, &#39;statistical&#39;: 247, &#39;method&#39;: 156, &#39;conclusions&#39;: 44, &#39;are&#39;: 24, &#39;consists&#39;: 46, &#39;individual&#39;: 110, &#39;differences&#39;: 56, &#39;position&#39;: 202, &#39;active&#39;: 8, &#39;participation&#39;: 182, &#39;instructors&#39;: 114, &#39;have&#39;: 95, &#39;simultaneous&#39;: 240, &#39;evidenced&#39;: 77, &#39;value&#39;: 279, &#39;coefficient&#39;: 43, &#39;multiple&#39;: 163, &#39;determination&#39;: 52, &#39;or&#39;: 178, &#39;fstatistic&#39;: 89, &#39;ftable&#39;: 91, &#39;greater&#39;: 93, &#39;than&#39;: 260, &#39;factor&#39;: 79, &#39;term&#39;: 258, &#39;partial&#39;: 180, &#39;no&#39;: 169, &#39;testing&#39;: 259, &#39;second&#39;: 231, &#39;hypothesis&#39;: 102, &#39;suggests&#39;: 251, &#39;variable&#39;: 281, &#39;proven&#39;: 212, &#39;seen&#39;: 232, &#39;from&#39;: 88, &#39;tcount&#39;: 254, &#39;indicates&#39;: 108, &#39;has&#39;: 94, &#39;dominant&#39;: 64, &#39;at&#39;: 27, &#39;keywords&#39;: 130, &#39;they&#39;: 263, &#39;electronic&#39;: 74, &#39;journals&#39;: 122, &#39;ejournals&#39;: 73, &#39;known&#39;: 133, &#39;scholarly&#39;: 229, &#39;intellectual&#39;: 116, &#39;magazines&#39;: 142, &#39;accessed&#39;: 5, &#39;via&#39;: 285, &#39;transmission&#39;: 270, &#39;practice&#39;: 203, &#39;means&#39;: 147, &#39;usually&#39;: 278, &#39;published&#39;: 214, &#39;web&#39;: 286, &#39;specialized&#39;: 243, &#39;form&#39;: 86, &#39;document&#39;: 62, &#39;providing&#39;: 213, &#39;material&#39;: 146, &#39;academic&#39;: 4, &#39;research&#39;: 219, &#39;formatted&#39;: 87, &#39;approximately&#39;: 23, &#39;like&#39;: 141, &#39;journal&#39;: 121, &#39;articles&#39;: 25, &#39;traditional&#39;: 268, &#39;printed&#39;: 204}
 Encoded Document is:
-[[0 0 0 ... 0 0 0]
- [0 1 0 ... 0 0 0]
- [0 0 0 ... 0 0 0]
- ...
- [0 0 1 ... 0 0 0]
- [2 0 0 ... 0 0 0]
- [0 0 0 ... 0 0 0]]
+[[0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 0 1
+  1 0 1 1 0 0 0 0 0 0 0 0 1 0 0 1 0 0 1 1 0 1 1 1 1 0 0 1 0 1 0 1 0 0 0 0
+  1 0 0 0 0 0 0 0 0 1 1 1 0 0 0 0 0 0 1 0 0 0 0 0 1 0 1 0 1 0 0 0 0 0 0 0
+  0 1 0 0 1 0 0 1 0 1 0 0 1 0 0 1 1 1 1 1 1 1 0 0 0 0 1 1 1 1 0 1 1 0 0 0
+  1 0 0 0 0 1 1 1 1 1 1 1 0 0 1 1 0 0 1 0 0 0 0 0 1 0 1 0 1 0 0 0 0 0 0 1
+  0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 1 0 0 1 1 1 0 0 0 0 0
+  0 1 0 0 0 0 1 0 1 1 0 1 1 0 1 0 0 0 1 0 1 1 1 1 0 0 0 0 0 1 1 0 1 0 1 0
+  1 0 0 1 1 1 0 0 0 0 0 0 0 1 1 0 0 0 0 1 1 0 1 1 0 0 0 0 1 0 0 1 0 0 0 0
+  0 0 0 0]
+ [1 1 1 1 0 0 1 1 1 1 1 1 0 1 1 0 0 1 1 1 1 1 1 0 1 0 1 1 1 1 0 1 1 1 1 0
+  0 1 0 0 1 1 1 1 1 1 1 1 0 1 1 0 1 1 0 0 1 0 0 0 0 1 0 0 1 0 1 0 1 1 1 1
+  0 0 0 1 1 1 1 1 1 0 0 0 1 1 0 0 1 1 0 1 1 1 1 1 0 1 0 1 0 1 1 1 1 1 1 1
+  1 0 1 1 0 1 1 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 1 1 1 0 0 0 0 0 1 0 0 0 0 1
+  0 1 0 0 1 0 0 0 0 0 0 0 1 1 0 0 1 1 0 1 1 1 1 1 0 1 1 1 0 1 1 1 1 1 1 0
+  1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 1 1 1 0 0 0 1 1 0 0 1
+  1 1 1 0 1 1 0 1 0 0 1 1 0 0 0 1 1 1 0 1 0 0 1 0 1 1 1 0 1 1 1 1 0 1 0 1
+  0 1 1 0 0 0 1 1 1 1 1 0 1 0 0 1 0 1 0 0 0 1 0 0 1 1 0 1 0 1 1 0 1 0 0 1
+  1 1 1 1]
+ [0 0 0 0 1 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 1 1 1 1 0 0 0 0 0 1 0 0 0
+  0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0
+  0 1 1 0 0 0 0 0 0 0 0 0 0 1 1 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 0 0
+  0 0 0 0 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 1 0
+  0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 1 0
+  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0 1 1 1
+  0 0 0 1 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 0
+  0 0 0 0 0 0 0 0 0 1 1 1 1 0 0 0 1 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 1 0
+  0 0 0 0]]
 </pre></div>
 </div>
 </div>
@@ -1212,533 +1062,6 @@ Encoded Document is:
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead tr th {
-        text-align: left;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr>
-      <th></th>
-      <th>abang</th>
-      <th>abidi</th>
-      <th>absen</th>
-      <th>abuabuselaluupdateinfo</th>
-      <th>acara</th>
-      <th>aceh</th>
-      <th>ada</th>
-      <th>adalah</th>
-      <th>adalahbengkulu</th>
-      <th>adam</th>
-      <th>...</th>
-      <th>yudha</th>
-      <th>yudono</th>
-      <th>yuliyanto</th>
-      <th>zabina</th>
-      <th>zacharias</th>
-      <th>zelensky</th>
-      <th>zendaya</th>
-      <th>zhang</th>
-      <th>zhitong</th>
-      <th>zhoualfa</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>1</th>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.000000</td>
-      <td>0.030388</td>
-      <td>0.00000</td>
-      <td>0.000000</td>
-      <td>...</td>
-      <td>0.000000</td>
-      <td>0.051826</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>0.000000</td>
-      <td>0.032533</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.000000</td>
-      <td>...</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.000000</td>
-      <td>...</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.032080</td>
-      <td>0.036189</td>
-      <td>0.00000</td>
-      <td>0.000000</td>
-      <td>...</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.028324</td>
-      <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.000000</td>
-      <td>...</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.000000</td>
-      <td>0.071591</td>
-      <td>0.00000</td>
-      <td>0.000000</td>
-      <td>...</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.000000</td>
-      <td>...</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.000000</td>
-      <td>...</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.032242</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.000000</td>
-      <td>...</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.000000</td>
-      <td>...</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.081981</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.030441</td>
-      <td>0.034340</td>
-      <td>0.00000</td>
-      <td>0.029283</td>
-      <td>...</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.087848</td>
-      <td>0.000000</td>
-      <td>0.029283</td>
-      <td>0.029283</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.019752</td>
-      <td>0.044565</td>
-      <td>0.00000</td>
-      <td>0.000000</td>
-      <td>...</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.096444</td>
-      <td>0.015543</td>
-      <td>0.00000</td>
-      <td>0.000000</td>
-      <td>...</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.026507</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.000000</td>
-      <td>...</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.10714</td>
-      <td>0.027844</td>
-      <td>0.000000</td>
-      <td>0.05357</td>
-      <td>0.000000</td>
-      <td>...</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.042490</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.071979</td>
-      <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.000000</td>
-      <td>...</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.025696</td>
-      <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.000000</td>
-      <td>...</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.098877</td>
-      <td>0.039213</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.038907</td>
-      <td>0.038907</td>
-      <td>0.170998</td>
-      <td>0.00000</td>
-      <td>0.000000</td>
-      <td>0.022813</td>
-      <td>0.00000</td>
-      <td>0.000000</td>
-      <td>...</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.311254</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>0.048637</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.000000</td>
-      <td>...</td>
-      <td>0.024319</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.048805</td>
-      <td>0.00000</td>
-      <td>0.028859</td>
-      <td>0.000000</td>
-      <td>0.00000</td>
-      <td>0.000000</td>
-      <td>...</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-    </tr>
-  </tbody>
-</table>
-<p>20 rows × 2558 columns</p>
-</div></div></div>
 </div>
 </section>
 <section id="convert-file-to-csv">

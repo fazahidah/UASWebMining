@@ -453,7 +453,7 @@ title="Print to PDF"
 <h2>Loading Dataset<a class="headerlink" href="#loading-dataset" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;TextPreprocessing.csv&quot;</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;deskripsi&quot;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;TextPreprocessing.csv&quot;</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;abstrak&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -483,102 +483,21 @@ title="Print to PDF"
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>deskripsi</th>
+      <th>abstrak</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>inggris larang impor produk kesehatan xinjiang...</td>
+      <td>['produktivitas', 'kerja', 'pelatihan', 'penge...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>tempoco ramadan tak hanya indonesia negara ini...</td>
+      <td>['the', 'of', 'and', 'to', 'productivity', 'is...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>tumbuh persen amar bank salurkan pinjaman rp  ...</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>kiat menjaga kesehatan hati reporter bisniscom...</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>pesenam kelahiran new york tetap tak boleh ber...</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>deskripsi</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>inggris larang impor produk kesehatan xinjiang...</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>tempoco ramadan tak hanya indonesia negara ini...</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>tumbuh persen amar bank salurkan pinjaman rp  ...</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>kiat menjaga kesehatan hati reporter bisniscom...</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>pesenam kelahiran new york tetap tak boleh ber...</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>bursa transfer liga rans cilegon fc kembali da...</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>siaran tv analog dihentikan april kominfo taha...</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>kualifikasi formula emilia romagna verstappen ...</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>bursa transfer liga psis semarang dapatkan pem...</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>gempa terkini di sulawesi tengah giliran morow...</td>
+      <td>['are', 'they', 'electronic', 'journals', 'ejo...</td>
     </tr>
   </tbody>
 </table>
@@ -604,7 +523,7 @@ title="Print to PDF"
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">TruncatedSVD</span>
 <span class="n">lsa_model</span> <span class="o">=</span> <span class="n">TruncatedSVD</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">algorithm</span><span class="o">=</span><span class="s1">&#39;randomized&#39;</span><span class="p">,</span> <span class="n">n_iter</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 <span class="n">vect</span><span class="o">=</span><span class="n">TfidfVectorizer</span><span class="p">(</span><span class="n">stop_words</span><span class="o">=</span><span class="n">stop_words</span><span class="p">,</span><span class="n">max_features</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
-<span class="n">vect_text</span><span class="o">=</span><span class="n">vect</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;deskripsi&#39;</span><span class="p">])</span>
+<span class="n">vect_text</span><span class="o">=</span><span class="n">vect</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;abstrak&#39;</span><span class="p">])</span>
 <span class="n">lsa_top</span><span class="o">=</span><span class="n">lsa_model</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">vect_text</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -618,47 +537,10 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.44246597 -0.05170996 -0.20169801 -0.28317528 -0.00783806  0.04909038
-  -0.04062387  0.25735175 -0.23806626 -0.13277994]
- [ 0.43834268 -0.01483974 -0.26760943  0.04184514 -0.25218383 -0.36419608
-   0.14307254 -0.10902938  0.16825659 -0.00868517]
- [ 0.24292104  0.08217825 -0.28315927  0.52872096 -0.02739613  0.45285055
-  -0.020461    0.05261666 -0.04663431  0.16005786]
- [ 0.35457706 -0.0551464  -0.21694956 -0.28766721  0.14532066  0.21002176
-   0.20902009  0.22368978 -0.19391787 -0.26777921]
- [ 0.30787958  0.02895696 -0.21166957 -0.25600217 -0.12710546  0.132557
-  -0.45101321 -0.2384806  -0.13992888  0.00296068]
- [ 0.26639684  0.69285617  0.16963238  0.09609313  0.10021745 -0.01081079
-   0.1316889  -0.07574922 -0.17049884 -0.14253969]
- [ 0.34882707 -0.11409444  0.11444984  0.11679567 -0.1365982   0.02344264
-  -0.27112742  0.37011553 -0.20367929 -0.29926827]
- [ 0.39792754  0.09482178  0.09811501 -0.2101082  -0.16634977  0.20160601
-  -0.03655259 -0.33012514  0.24504065  0.11341437]
- [ 0.28635911  0.68978099  0.20718492  0.02884706  0.08135909 -0.06611009
-   0.09109246 -0.090853   -0.10445768 -0.08070228]
- [ 0.33938486 -0.2124202   0.26190795  0.09752455  0.37072515  0.03091748
-   0.01349875 -0.06488705 -0.26524706  0.44019182]
- [ 0.47111712 -0.06987505 -0.10840237 -0.06431857 -0.09663164 -0.13410123
-  -0.01320776 -0.03486384 -0.15672541 -0.00149571]
- [ 0.26326653 -0.02395139 -0.09738389 -0.15800685  0.23902394  0.44539156
-   0.38747412  0.13050914  0.47072877 -0.06315503]
- [ 0.35286443 -0.11333694 -0.05317334  0.25874906  0.26273245 -0.36316188
-  -0.1207123  -0.07051728  0.38947425 -0.42846294]
- [ 0.30201696  0.03585865 -0.34179375  0.53715758 -0.16048793  0.12247177
-  -0.10815128 -0.0347858   0.0390011   0.05613284]
- [ 0.49730071 -0.30426734  0.48332059  0.12610493 -0.05204604  0.03286607
-   0.12897137 -0.04350953 -0.07359893 -0.0647296 ]
- [ 0.22570571  0.28344491  0.17266675 -0.08521283 -0.13288108 -0.14404727
-  -0.24050054  0.63582419  0.34520292  0.38670758]
- [ 0.33414429 -0.07933979 -0.05254161  0.01369865  0.65796915 -0.13144133
-  -0.25797446 -0.03465512  0.03656343  0.12948484]
- [ 0.45098337  0.01529645 -0.03343537 -0.30031543 -0.11062293  0.04753273
-  -0.17283491 -0.25280043  0.16041879  0.15184777]
- [ 0.3819687  -0.24634975  0.51487718  0.11905172 -0.28003863  0.06519414
-   0.1429403  -0.02609714  0.0478376  -0.05216841]
- [ 0.30614238 -0.06024969 -0.32535298 -0.01465236 -0.07338366 -0.37113611
-   0.4818435   0.0550941  -0.16269096  0.30481745]]
-(20, 10)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 5.93011225e-01 -5.74416119e-01 -5.64255092e-01]
+ [ 7.24453584e-01  2.73158232e-14  6.89323585e-01]
+ [ 4.16137816e-01  8.18563450e-01 -3.95958579e-01]]
+(3, 3)
 </pre></div>
 </div>
 </div>
@@ -675,16 +557,9 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Document 0 :
-Topic  0  :  44.246596604769756
-Topic  1  :  -5.170995919999537
-Topic  2  :  -20.16980149986444
-Topic  3  :  -28.317527866218434
-Topic  4  :  -0.7838064817234477
-Topic  5  :  4.909037547612574
-Topic  6  :  -4.062387100114588
-Topic  7  :  25.735174955352846
-Topic  8  :  -23.806625838609815
-Topic  9  :  -13.277994386615799
+Topic  0  :  59.30112248059728
+Topic  1  :  -57.44161193441053
+Topic  2  :  -56.425509221608024
 </pre></div>
 </div>
 </div>
@@ -697,20 +572,202 @@ Topic  9  :  -13.277994386615799
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(10, 1000)
-[[ 0.0073628   0.040238    0.02293696 ...  0.02613302  0.01697828
-   0.06184327]
- [-0.00940885 -0.0001586  -0.02780617 ... -0.02786706 -0.00498949
-   0.00415615]
- [ 0.02084096 -0.01926479  0.0468113  ...  0.03530444 -0.00820356
-  -0.00962801]
- ...
- [-0.00136181 -0.0485069  -0.00543261 ... -0.00965279 -0.00340132
-  -0.09384638]
- [ 0.00253737  0.02409803 -0.00934085 ... -0.02668339 -0.01554184
-   0.06053206]
- [-0.00282135  0.04958969 -0.00837633 ...  0.04445687 -0.00015123
-   0.05842172]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3, 257)
+[[ 6.29091809e-02  6.29091809e-02  6.29091809e-02  7.15102091e-02
+   7.15102091e-02  6.29091809e-02  6.29091809e-02  6.29091809e-02
+   6.29091809e-02  6.29091809e-02  5.44566318e-02  1.02229411e-01
+   5.44566318e-02  5.44566318e-02  6.29091809e-02  6.29091809e-02
+   6.29091809e-02  6.29091809e-02  6.29091809e-02  7.15102091e-02
+   7.15102091e-02  6.29091809e-02  6.29091809e-02  5.44566318e-02
+   8.92597257e-02  6.29091809e-02  5.44566318e-02  5.44566318e-02
+   5.44566318e-02  5.44566318e-02  6.29091809e-02  6.29091809e-02
+   6.29091809e-02  6.29091809e-02  6.29091809e-02  6.29091809e-02
+   5.44566318e-02  6.29091809e-02  6.29091809e-02  5.44566318e-02
+   6.29091809e-02  6.29091809e-02  5.44566318e-02  5.44566318e-02
+   6.29091809e-02  5.44566318e-02  5.44566318e-02  5.44566318e-02
+   5.44566318e-02  6.29091809e-02  7.15102091e-02  5.44566318e-02
+   6.29091809e-02  5.44566318e-02  6.29091809e-02  5.44566318e-02
+   6.29091809e-02  6.29091809e-02  6.29091809e-02  6.29091809e-02
+   5.44566318e-02  7.15102091e-02  7.15102091e-02  6.29091809e-02
+   6.29091809e-02  6.29091809e-02  6.29091809e-02  6.29091809e-02
+   6.29091809e-02  5.44566318e-02  5.44566318e-02  5.44566318e-02
+   6.29091809e-02  7.15102091e-02  7.15102091e-02  6.29091809e-02
+   5.44566318e-02  6.29091809e-02  6.29091809e-02  6.29091809e-02
+   5.44566318e-02  6.29091809e-02  5.44566318e-02  5.44566318e-02
+   6.29091809e-02  6.29091809e-02  6.29091809e-02  6.29091809e-02
+   6.29091809e-02  6.29091809e-02  6.29091809e-02  5.44566318e-02
+   6.29091809e-02  6.29091809e-02  5.44566318e-02  6.29091809e-02
+   6.29091809e-02  5.44566318e-02  7.15102091e-02  5.44566318e-02
+   5.44566318e-02  7.15102091e-02  7.15102091e-02  5.44566318e-02
+   5.44566318e-02  5.44566318e-02  5.44566318e-02  5.44566318e-02
+   5.44566318e-02  5.44566318e-02  6.29091809e-02  6.29091809e-02
+   6.29091809e-02  7.15102091e-02  5.44566318e-02  5.44566318e-02
+   5.44566318e-02  5.44566318e-02  6.29091809e-02  5.44566318e-02
+   5.44566318e-02  7.15102091e-02  7.15102091e-02  6.29091809e-02
+   5.44566318e-02  6.29091809e-02  7.15102091e-02  7.15102091e-02
+   6.29091809e-02  5.44566318e-02  5.44566318e-02  5.44566318e-02
+   5.44566318e-02  5.44566318e-02  5.44566318e-02  5.44566318e-02
+   6.29091809e-02  6.29091809e-02  5.44566318e-02  5.44566318e-02
+   6.29091809e-02  6.29091809e-02  5.44566318e-02  6.29091809e-02
+   6.29091809e-02  6.29091809e-02  6.29091809e-02  6.29091809e-02
+   5.44566318e-02  8.92597257e-02  5.44566318e-02  6.29091809e-02
+   6.29091809e-02  6.29091809e-02  5.44566318e-02  6.29091809e-02
+   6.29091809e-02  6.29091809e-02  5.44566318e-02  5.44566318e-02
+   5.44566318e-02  5.44566318e-02  5.44566318e-02  5.44566318e-02
+   5.44566318e-02  5.44566318e-02  5.44566318e-02  5.44566318e-02
+   5.44566318e-02  5.44566318e-02  5.44566318e-02  5.44566318e-02
+   5.44566318e-02  5.44566318e-02  5.44566318e-02  5.44566318e-02
+   6.29091809e-02  6.29091809e-02  7.15102091e-02  7.15102091e-02
+   8.92597257e-02  6.29091809e-02  6.29091809e-02  5.44566318e-02
+   5.44566318e-02  5.44566318e-02  6.29091809e-02  6.29091809e-02
+   7.15102091e-02  7.15102091e-02  1.02229411e-01  6.29091809e-02
+   8.92597257e-02  6.29091809e-02  7.15102091e-02  6.29091809e-02
+   6.29091809e-02  5.44566318e-02  6.29091809e-02  5.44566318e-02
+   5.44566318e-02  6.29091809e-02  8.92597257e-02  5.44566318e-02
+   7.15102091e-02  5.44566318e-02  6.29091809e-02  6.29091809e-02
+   6.29091809e-02  5.44566318e-02  6.29091809e-02  5.44566318e-02
+   5.44566318e-02  8.92597257e-02  5.44566318e-02  6.29091809e-02
+   6.29091809e-02  7.15102091e-02  6.29091809e-02  8.92597257e-02
+   8.92597257e-02  6.29091809e-02  5.44566318e-02  1.02229411e-01
+   5.44566318e-02  6.29091809e-02  5.44566318e-02  6.29091809e-02
+   6.29091809e-02  5.44566318e-02  5.44566318e-02  5.44566318e-02
+   6.29091809e-02  6.29091809e-02  5.44566318e-02  5.44566318e-02
+   7.15102091e-02  6.29091809e-02  7.15102091e-02  5.44566318e-02
+   5.44566318e-02  6.29091809e-02  5.44566318e-02  5.44566318e-02
+   6.29091809e-02  6.29091809e-02  7.15102091e-02  6.29091809e-02
+   5.44566318e-02  6.29091809e-02  6.29091809e-02  5.44566318e-02
+   6.29091809e-02  7.15102091e-02  7.15102091e-02  6.29091809e-02
+   6.29091809e-02]
+ [ 2.64490484e-15  2.79311756e-15  2.59514425e-15  1.47650302e-01
+   1.47650302e-01  2.58880305e-15  2.58880305e-15  2.58880305e-15
+   2.58880305e-15  2.58880305e-15 -5.53688631e-02  1.12291860e-01
+  -5.53688631e-02 -5.53688631e-02  2.58880305e-15  2.58880305e-15
+   2.58880305e-15  2.58880305e-15  2.58880305e-15  1.47650302e-01
+   1.47650302e-01  2.58880305e-15  2.58880305e-15 -5.53688631e-02
+  -4.21094476e-02  2.58880305e-15 -5.53688631e-02 -5.53688631e-02
+  -5.53688631e-02 -5.53688631e-02  2.58880305e-15  2.58880305e-15
+   2.58880305e-15  2.58880305e-15  2.58880305e-15  2.58880305e-15
+  -5.53688631e-02  2.58880305e-15  2.58880305e-15 -5.53688631e-02
+   2.58880305e-15  2.58880305e-15 -5.53688631e-02 -5.53688631e-02
+   2.58880305e-15 -5.53688631e-02 -5.53688631e-02 -5.53688631e-02
+  -5.53688631e-02  2.58880305e-15  1.47650302e-01 -5.53688631e-02
+   2.58880305e-15 -5.53688631e-02  2.58880305e-15 -5.53688631e-02
+   2.58880305e-15  2.58880305e-15  2.58880305e-15  2.58880305e-15
+  -5.53688631e-02  1.47650302e-01  1.47650302e-01  2.58880305e-15
+   2.58880305e-15  2.58880305e-15  2.58880305e-15  2.58880305e-15
+   2.58880305e-15 -5.53688631e-02 -5.53688631e-02 -5.53688631e-02
+   2.58880305e-15  1.47650302e-01  1.47650302e-01  2.58880305e-15
+  -5.53688631e-02  2.58880305e-15  2.58880305e-15  2.58880305e-15
+  -5.53688631e-02  2.58880305e-15 -5.53688631e-02 -5.53688631e-02
+   2.58880305e-15  2.58880305e-15  2.58880305e-15  2.58880305e-15
+   2.58880305e-15  2.58880305e-15  2.58880305e-15 -5.53688631e-02
+   2.58880305e-15  2.58880305e-15 -5.53688631e-02  2.58880305e-15
+   2.58880305e-15 -5.53688631e-02  1.47650302e-01 -5.53688631e-02
+  -5.53688631e-02  1.47650302e-01  1.47650302e-01 -5.53688631e-02
+  -5.53688631e-02 -5.53688631e-02 -5.53688631e-02 -5.53688631e-02
+  -5.53688631e-02 -5.53688631e-02  2.58880305e-15  2.58880305e-15
+   2.58880305e-15  1.47650302e-01 -5.53688631e-02 -5.53688631e-02
+  -5.53688631e-02 -5.53688631e-02  2.58880305e-15 -5.53688631e-02
+  -5.53688631e-02  1.47650302e-01  1.47650302e-01  2.58880305e-15
+  -5.53688631e-02  2.58880305e-15  1.47650302e-01  1.47650302e-01
+   2.58880305e-15 -5.53688631e-02 -5.53688631e-02 -5.53688631e-02
+  -5.53688631e-02 -5.53688631e-02 -5.53688631e-02 -5.53688631e-02
+   2.58880305e-15  2.58880305e-15 -5.53688631e-02 -5.53688631e-02
+   2.58880305e-15  2.58880305e-15 -5.53688631e-02  2.58880305e-15
+   2.58880305e-15  2.58880305e-15  2.58880305e-15  2.58880305e-15
+  -5.53688631e-02 -4.21094476e-02 -5.53688631e-02  2.58880305e-15
+   2.58880305e-15  2.58880305e-15 -5.53688631e-02  2.58880305e-15
+   2.58880305e-15  2.58880305e-15 -5.53688631e-02 -5.53688631e-02
+  -5.53688631e-02 -5.53688631e-02 -5.53688631e-02 -5.53688631e-02
+  -5.53688631e-02 -5.53688631e-02 -5.53688631e-02 -5.53688631e-02
+  -5.53688631e-02 -5.53688631e-02 -5.53688631e-02 -5.53688631e-02
+  -5.53688631e-02 -5.53688631e-02 -5.53688631e-02 -5.53688631e-02
+   2.58880305e-15  2.58880305e-15  1.47650302e-01  1.47650302e-01
+  -4.21094476e-02  2.58880305e-15  2.58880305e-15 -5.53688631e-02
+  -5.53688631e-02 -5.53688631e-02  2.58880305e-15  2.58880305e-15
+   1.47650302e-01  1.47650302e-01  1.12291860e-01  2.58880305e-15
+  -4.21094476e-02  2.58880305e-15  1.47650302e-01  2.58880305e-15
+   2.58880305e-15 -5.53688631e-02  2.58880305e-15 -5.53688631e-02
+  -5.53688631e-02  2.58880305e-15 -4.21094476e-02 -5.53688631e-02
+   1.47650302e-01 -5.53688631e-02  2.58880305e-15  2.58880305e-15
+   2.58880305e-15 -5.53688631e-02  2.58880305e-15 -5.53688631e-02
+  -5.53688631e-02 -4.21094476e-02 -5.53688631e-02  2.58880305e-15
+   2.58880305e-15  1.47650302e-01  2.58880305e-15 -4.21094476e-02
+  -4.21094476e-02  2.58880305e-15 -5.53688631e-02  1.12291860e-01
+  -5.53688631e-02  2.58880305e-15 -5.53688631e-02  2.58880305e-15
+   2.58880305e-15 -5.53688631e-02 -5.53688631e-02 -5.53688631e-02
+   2.58880305e-15  2.58880305e-15 -5.53688631e-02 -5.53688631e-02
+   1.47650302e-01  2.58880305e-15  1.47650302e-01 -5.53688631e-02
+  -5.53688631e-02  2.58880305e-15 -5.53688631e-02 -5.53688631e-02
+   2.58880305e-15  2.58880305e-15  1.47650302e-01  2.58880305e-15
+  -5.53688631e-02  2.58880305e-15  2.58880305e-15 -5.53688631e-02
+   2.58880305e-15  1.47650302e-01  1.47650302e-01  2.58880305e-15
+   2.58880305e-15]
+ [ 6.61152215e-02  6.61152215e-02  6.61152215e-02 -7.51545839e-02
+  -7.51545839e-02  6.61152215e-02  6.61152215e-02  6.61152215e-02
+   6.61152215e-02  6.61152215e-02 -5.72319051e-02 -6.87466806e-03
+  -5.72319051e-02 -5.72319051e-02  6.61152215e-02  6.61152215e-02
+   6.61152215e-02  6.61152215e-02  6.61152215e-02 -7.51545839e-02
+  -7.51545839e-02  6.61152215e-02  6.61152215e-02 -5.72319051e-02
+   6.75599110e-03  6.61152215e-02 -5.72319051e-02 -5.72319051e-02
+  -5.72319051e-02 -5.72319051e-02  6.61152215e-02  6.61152215e-02
+   6.61152215e-02  6.61152215e-02  6.61152215e-02  6.61152215e-02
+  -5.72319051e-02  6.61152215e-02  6.61152215e-02 -5.72319051e-02
+   6.61152215e-02  6.61152215e-02 -5.72319051e-02 -5.72319051e-02
+   6.61152215e-02 -5.72319051e-02 -5.72319051e-02 -5.72319051e-02
+  -5.72319051e-02  6.61152215e-02 -7.51545839e-02 -5.72319051e-02
+   6.61152215e-02 -5.72319051e-02  6.61152215e-02 -5.72319051e-02
+   6.61152215e-02  6.61152215e-02  6.61152215e-02  6.61152215e-02
+  -5.72319051e-02 -7.51545839e-02 -7.51545839e-02  6.61152215e-02
+   6.61152215e-02  6.61152215e-02  6.61152215e-02  6.61152215e-02
+   6.61152215e-02 -5.72319051e-02 -5.72319051e-02 -5.72319051e-02
+   6.61152215e-02 -7.51545839e-02 -7.51545839e-02  6.61152215e-02
+  -5.72319051e-02  6.61152215e-02  6.61152215e-02  6.61152215e-02
+  -5.72319051e-02  6.61152215e-02 -5.72319051e-02 -5.72319051e-02
+   6.61152215e-02  6.61152215e-02  6.61152215e-02  6.61152215e-02
+   6.61152215e-02  6.61152215e-02  6.61152215e-02 -5.72319051e-02
+   6.61152215e-02  6.61152215e-02 -5.72319051e-02  6.61152215e-02
+   6.61152215e-02 -5.72319051e-02 -7.51545839e-02 -5.72319051e-02
+  -5.72319051e-02 -7.51545839e-02 -7.51545839e-02 -5.72319051e-02
+  -5.72319051e-02 -5.72319051e-02 -5.72319051e-02 -5.72319051e-02
+  -5.72319051e-02 -5.72319051e-02  6.61152215e-02  6.61152215e-02
+   6.61152215e-02 -7.51545839e-02 -5.72319051e-02 -5.72319051e-02
+  -5.72319051e-02 -5.72319051e-02  6.61152215e-02 -5.72319051e-02
+  -5.72319051e-02 -7.51545839e-02 -7.51545839e-02  6.61152215e-02
+  -5.72319051e-02  6.61152215e-02 -7.51545839e-02 -7.51545839e-02
+   6.61152215e-02 -5.72319051e-02 -5.72319051e-02 -5.72319051e-02
+  -5.72319051e-02 -5.72319051e-02 -5.72319051e-02 -5.72319051e-02
+   6.61152215e-02  6.61152215e-02 -5.72319051e-02 -5.72319051e-02
+   6.61152215e-02  6.61152215e-02 -5.72319051e-02  6.61152215e-02
+   6.61152215e-02  6.61152215e-02  6.61152215e-02  6.61152215e-02
+  -5.72319051e-02  6.75599110e-03 -5.72319051e-02  6.61152215e-02
+   6.61152215e-02  6.61152215e-02 -5.72319051e-02  6.61152215e-02
+   6.61152215e-02  6.61152215e-02 -5.72319051e-02 -5.72319051e-02
+  -5.72319051e-02 -5.72319051e-02 -5.72319051e-02 -5.72319051e-02
+  -5.72319051e-02 -5.72319051e-02 -5.72319051e-02 -5.72319051e-02
+  -5.72319051e-02 -5.72319051e-02 -5.72319051e-02 -5.72319051e-02
+  -5.72319051e-02 -5.72319051e-02 -5.72319051e-02 -5.72319051e-02
+   6.61152215e-02  6.61152215e-02 -7.51545839e-02 -7.51545839e-02
+   6.75599110e-03  6.61152215e-02  6.61152215e-02 -5.72319051e-02
+  -5.72319051e-02 -5.72319051e-02  6.61152215e-02  6.61152215e-02
+  -7.51545839e-02 -7.51545839e-02 -6.87466806e-03  6.61152215e-02
+   6.75599110e-03  6.61152215e-02 -7.51545839e-02  6.61152215e-02
+   6.61152215e-02 -5.72319051e-02  6.61152215e-02 -5.72319051e-02
+  -5.72319051e-02  6.61152215e-02  6.75599110e-03 -5.72319051e-02
+  -7.51545839e-02 -5.72319051e-02  6.61152215e-02  6.61152215e-02
+   6.61152215e-02 -5.72319051e-02  6.61152215e-02 -5.72319051e-02
+  -5.72319051e-02  6.75599110e-03 -5.72319051e-02  6.61152215e-02
+   6.61152215e-02 -7.51545839e-02  6.61152215e-02  6.75599110e-03
+   6.75599110e-03  6.61152215e-02 -5.72319051e-02 -6.87466806e-03
+  -5.72319051e-02  6.61152215e-02 -5.72319051e-02  6.61152215e-02
+   6.61152215e-02 -5.72319051e-02 -5.72319051e-02 -5.72319051e-02
+   6.61152215e-02  6.61152215e-02 -5.72319051e-02 -5.72319051e-02
+  -7.51545839e-02  6.61152215e-02 -7.51545839e-02 -5.72319051e-02
+  -5.72319051e-02  6.61152215e-02 -5.72319051e-02 -5.72319051e-02
+   6.61152215e-02  6.61152215e-02 -7.51545839e-02  6.61152215e-02
+  -5.72319051e-02  6.61152215e-02  6.61152215e-02 -5.72319051e-02
+   6.61152215e-02 -7.51545839e-02 -7.51545839e-02  6.61152215e-02
+   6.61152215e-02]]
 </pre></div>
 </div>
 </div>
@@ -733,34 +790,13 @@ Topic  9  :  -13.277994386615799
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Topic 0: 
-di dan yang untuk hujan akan ini dengan pada dari 
+also purpose study bangkalan non probality random sampling simple spss 
 
 Topic 1: 
-pemain liga psis fc musim fajar bursa rans baru cilegon 
+academic accessed approximately articles document ejournals electronic form formatted intellectual 
 
 Topic 2: 
-hujan pukul bmkg gempa pemain laut hingga liga petir berawan 
-
-Topic 3: 
-bank amar bpk pinjaman jalur yogyakarta ketua rp mandiri mudik 
-
-Topic 4: 
-pengajar gempa platform siswa bisa yogyakarta jalur mahasiswa aplikasi baterai 
-
-Topic 5: 
-baterai bank amar pinjaman listrik motor hati yamaha rp daya 
-
-Topic 6: 
-bihalal halal baterai listrik motor hati edaran ppkm yamaha idul 
-
-Topic 7: 
-vs liga inggris hati tv jadwal juara siaran analog kominfo 
-
-Topic 8: 
-baterai jalur vs listrik motor yamaha yogyakarta mudik daya swap 
-
-Topic 9: 
-gempa vs bihalal halal dirasakan guncangan morowali terkini bank juara 
+able abstract accordance achieved active adjust agency analysis analytic analyze 
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Fatin\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\utils\deprecation.py:87: FutureWarning: Function get_feature_names is deprecated; get_feature_names is deprecated in 1.0 and will be removed in 1.2. Please use get_feature_names_out instead.
@@ -796,47 +832,13 @@ gempa vs bihalal halal dirasakan guncangan morowali terkini bank juara
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(20, 10)
-[[0.01032322 0.01032308 0.90709126 0.01032321 0.01032319 0.01032308
-  0.01032351 0.0103232  0.01032302 0.01032323]
- [0.01072433 0.01072439 0.01072439 0.01072452 0.01072441 0.01072434
-  0.90348067 0.01072431 0.01072434 0.0107243 ]
- [0.01372216 0.01372214 0.01372216 0.01372221 0.87650016 0.01372218
-  0.01372206 0.01372236 0.01372229 0.01372228]
- [0.01115603 0.01115536 0.01115543 0.01115535 0.01115543 0.01115537
-  0.01115539 0.01115535 0.89960094 0.01115536]
- [0.91078083 0.009913   0.00991311 0.00991299 0.00991311 0.00991311
-  0.0099144  0.0099131  0.00991308 0.00991326]
- [0.01299454 0.01299356 0.01299364 0.01299364 0.01299364 0.01299366
-  0.01299356 0.01299359 0.01299366 0.88305651]
- [0.01193168 0.01193168 0.0119314  0.0119315  0.01193141 0.01193141
-  0.01193145 0.01193136 0.89261651 0.01193161]
- [0.0088771  0.00887703 0.0088771  0.00887701 0.00887713 0.00887704
-  0.0088771  0.9201061  0.0088771  0.00887729]
- [0.01266568 0.01266549 0.01266568 0.01266567 0.01266566 0.01266573
-  0.01266565 0.01266568 0.88600894 0.01266583]
- [0.01280819 0.88472676 0.0128081  0.01280817 0.01280806 0.01280811
-  0.01280814 0.01280796 0.01280815 0.01280834]
- [0.00838822 0.92450624 0.00838816 0.00838824 0.0083882  0.00838818
-  0.00838818 0.0083882  0.00838817 0.00838821]
- [0.01270717 0.01270703 0.01270692 0.01270689 0.0127069  0.01270688
-  0.01270697 0.01270689 0.0127071  0.88563724]
- [0.0109299  0.01093003 0.01092991 0.90163113 0.01092981 0.01092984
-  0.01092984 0.01092986 0.01092981 0.01092987]
- [0.01269457 0.0126946  0.01269455 0.88574844 0.01269492 0.01269449
-  0.01269448 0.01269462 0.01269471 0.01269462]
- [0.01035195 0.01035194 0.01035201 0.01035204 0.01035201 0.01035207
-  0.01035193 0.01035193 0.0103519  0.90683221]
- [0.01275627 0.01275629 0.01275636 0.01275633 0.01275603 0.0127564
-  0.01275623 0.01275636 0.01275624 0.88519349]
- [0.90604786 0.01043906 0.01043909 0.01043923 0.01043906 0.01043921
-  0.01043913 0.01043909 0.01043914 0.01043911]
- [0.90979083 0.0100242  0.0100231  0.01002311 0.01002316 0.01002305
-  0.01002313 0.01002315 0.01002313 0.01002315]
- [0.01251804 0.01251803 0.01251802 0.01251799 0.88733773 0.01251803
-  0.01251797 0.01251797 0.01251805 0.01251819]
- [0.01283432 0.88449084 0.01283416 0.01283434 0.01283434 0.01283424
-  0.01283492 0.01283425 0.01283441 0.01283419]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3, 10)
+[[0.00868717 0.00868711 0.00868717 0.00868721 0.00868718 0.00868716
+  0.00868724 0.92181544 0.00868719 0.00868714]
+ [0.45505413 0.00823067 0.00823067 0.47909991 0.00823147 0.00823064
+  0.00823059 0.0082306  0.00823066 0.00823065]
+ [0.01505912 0.01505941 0.01505927 0.01505928 0.01505894 0.86446714
+  0.01505933 0.01505923 0.01505916 0.01505913]]
 </pre></div>
 </div>
 </div>
@@ -868,19 +870,16 @@ gempa vs bihalal halal dirasakan guncangan morowali terkini bank juara
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Document 0: 
-Topic  0 :  1.0323224683850167 %
-Topic  1 :  1.032307504454671 %
-Topic  2 :  90.70912634927686 %
-Topic  3 :  1.0323205782698202 %
-Topic  4 :  1.0323194720162474 %
-Topic  5 :  1.0323076514533123 %
-Topic  6 :  1.0323511454775984 %
-Topic  7 :  1.0323200383865658 %
-Topic  8 :  
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0323017599576698 %
-Topic  9 :  1.0323230323222345 %
+Topic  0 :  0.8687166585081979 %
+Topic  1 :  0.8687107996382643 %
+Topic  2 :  0.8687166341007491 %
+Topic  3 :  0.8687205218806204 %
+Topic  4 :  0.8687178624996125 %
+Topic  5 :  0.8687164436607305 %
+Topic  6 :  0.8687236029485277 %
+Topic  7 :  92.18154449064558 %
+Topic  8 :  0.8687189805153164 %
+Topic  9 :  0.8687140056023951 %
 </pre></div>
 </div>
 </div>
@@ -893,14 +892,14 @@ Topic  9 :  1.0323230323222345 %
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.8703105  0.85434455 0.81044014 ... 0.93537146 0.75631191 0.91473369]
- [0.91109682 0.88051115 0.62901973 ... 0.84263822 0.87510869 1.05082216]
- [0.68888338 0.82668677 0.88243706 ... 0.9336661  0.77714279 0.80835138]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.87031054 0.81812976 0.81044012 ... 0.80762564 0.88897607 0.96886912]
+ [0.7223261  0.69870863 0.82480291 ... 0.78695843 0.8859444  0.98869265]
+ [0.87821793 0.92270489 0.8977695  ... 0.8424137  0.82955235 0.90887865]
  ...
- [0.75684535 0.91820279 0.85334298 ... 0.79899823 0.6764335  0.81364785]
- [0.9376118  0.76222521 0.80687708 ... 0.88485635 0.79560354 0.81234631]
- [0.75327363 0.76478809 0.96002918 ... 0.87954728 0.69845729 0.72556003]]
-(10, 1000)
+ [0.78017998 0.88856492 0.6858072  ... 0.74216826 0.89455004 0.79479934]
+ [0.86595939 0.7640936  0.82988802 ... 0.94403496 0.90341341 0.80564662]
+ [0.94452359 0.92596826 0.76780705 ... 0.75335728 0.75036164 0.85890323]]
+(10, 257)
 </pre></div>
 </div>
 </div>
@@ -923,39 +922,41 @@ Topic  9 :  1.0323230323222345 %
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Topic 0: 
-bila siswa tidak mendapat kesempatan resmi ujar switch tahun balapan 
+mendukung faktor meningkatkan statistik square observations questionnaire variabel support instructors 
 
 Topic 1: 
-penggemar lalu makanmakan ukraina guncangan lihat zendaya klimatologi diluncurkan ppkm 
+marine via human analitik department instructors like working upaya variables 
 
 Topic 2: 
-belakang setiap ritmik ukrainarusia prancis bangkit sprint servicedengan pernah pendidikan 
+support meningkatkan analitik proven material kunci menganalisa dinas ftabel hipotesis 
 
 Topic 3: 
-tepatnya diprediksi nomor tingkat hidup perjalanan laga mengisi tak jalur 
+employment implement peserta determination atmosphere namely increase tujuan skills knowledge 
 
 Topic 4: 
-olahan lap abang kawasan iii pertumbuhan mirip poin satu kelapa 
+perikanan tercapai satiyah expected used faktor square pengaruh adjust drahjsanugrahini 
 
 Topic 5: 
-tumbuh diluncurkan takjil sendiri kontributor setiawan tingkat alternatif katanya mengikuti 
+meningkat perbedaan one koefisien via partisipasi laku work usually pegawai 
 
 Topic 6: 
-ramadan menentukan mempunyai memiliki risiko layanan platform tapi guncangan ujiajacommenerapkan 
+individu working efisien kabupaten diolah analisis mendukung efektif partial work 
 
 Topic 7: 
-bisa kliktempoco kerawanan sepanjang naik lama kasino pemerintah insiden sosial 
+sampel suggests menyesuaikan kondusif kelautan factor needs terciptanya magazines determination 
 
 Topic 8: 
-tampak keseluruhan ucapnya mendukung narendra rekam virtual diguyur membawa terkait 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>consists approach creation effort population programs observasional tuntutan like research 
 
 Topic 9: 
-terdapat baterai balik tentunya bidang empat kantor selasa ahad laut 
+hipotesis observasional menganalisa fhitung evidenced respondents demands spread analisis approach 
 </pre></div>
 </div>
 </div>
 </div>
-<p>To better visualize words in a topic we can see the word cloud. For each topic top 50 words are plotted.</p>
+<p>Untuk memvisualisasikan kata-kata dalam suatu topik kita bisa melihat kata cloud. Untuk setiap kata teratas diplot.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wordcloud</span> <span class="kn">import</span> <span class="n">WordCloud</span>
@@ -987,7 +988,7 @@ terdapat baterai balik tentunya bidang empat kantor selasa ahad laut
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Modelling_27_0.png" src="_images/Modelling_27_0.png" />
+<img alt="_images/Modelling_26_0.png" src="_images/Modelling_26_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -998,7 +999,7 @@ terdapat baterai balik tentunya bidang empat kantor selasa ahad laut
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Modelling_28_0.png" src="_images/Modelling_28_0.png" />
+<img alt="_images/Modelling_27_0.png" src="_images/Modelling_27_0.png" />
 </div>
 </div>
 </section>
